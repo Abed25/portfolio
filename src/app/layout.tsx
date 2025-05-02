@@ -1,9 +1,11 @@
+// src/app/layout.tsx  (server component)
 import "./globals.css";
-import Navbar from "../components/Navbar";
+import ThemeRegistry from "./ThemeRegistry";
+import NavBar from "../components/Navbar";
 
 export const metadata = {
   title: "superDev Portfolio",
-  description: "A showcase of projects and skills",
+  description: "Tech Entrepreneur | Software Developer | Innovator",
 };
 
 export default function RootLayout({
@@ -14,8 +16,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        {children}
+        <ThemeRegistry>
+          {/* ← NavBar goes here, inside ThemeRegistry so it inherits theme classes */}
+          <NavBar />
+
+          {/* Then all your page content */}
+          {children}
+        </ThemeRegistry>
       </body>
     </html>
   );

@@ -1,11 +1,18 @@
-/* Tailwind base, components, and utilities */
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
+/* src/app/globals.css */
 
-/* Your custom styles */
-body {
-  margin: 0;
+html {
+  transition: background 0.3s ease, color 0.3s ease;
   font-family: "Segoe UI", sans-serif;
-  background-color: #fafafa;
+}
+
+/* light theme */
+html.light {
+  background: #ffffff;
+  color: #333333;
+}
+
+/* dark theme */
+html.dark {
+  background: #121212;
+  color: #f2f2f2;
 }
