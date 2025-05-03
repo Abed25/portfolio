@@ -10,6 +10,11 @@ export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState("light");
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     // On load, check if there's a saved theme
@@ -34,13 +39,16 @@ export default function NavBar() {
           <Link href="/">superDev</Link>
         </div>
         {/* 🌗 Theme Toggle Button */}
-        <button className={styles.toggleThemeBtn} onClick={toggleTheme}>
-          {theme === "light" ? (
-            <FaMoon style={{ color: "black", fontSize: "20px" }} />
-          ) : (
-            <FaSun style={{ color: "fff", fontSize: "20px" }} />
-          )}
-        </button>
+        {mounted && (
+          <button className={styles.toggleThemeBtn} onClick={toggleTheme}>
+            {theme === "light" ? (
+              <FaMoon style={{ color: "black", fontSize: "20px" }} />
+            ) : (
+              <FaSun style={{ color: "fff", fontSize: "20px" }} />
+            )}
+          </button>
+        )}
+
         <button
           className={styles.toggle}
           aria-label="Toggle navigation menu"
