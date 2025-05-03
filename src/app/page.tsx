@@ -7,25 +7,8 @@ import Image from "next/image";
 import styles from "./HomePage.module.css";
 
 export default function HomePage() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <main className={styles.main}>
-      {/* Theme Toggle (only after mount) */}
-      {mounted && (
-        <button
-          className={styles.toggle}
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        >
-          {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
-        </button>
-      )}
-
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.avatar}>
