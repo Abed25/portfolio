@@ -2,9 +2,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import styles from "./HomePage.module.css";
+import avatar from "../../public/croped.jpg";
 
 export default function HomePage() {
   return (
@@ -12,12 +12,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.avatar}>
-          <Image
-            src="/avatar.png"
-            alt="superDev avatar"
-            width={120}
-            height={120}
-          />
+          <Image src={avatar} alt="superDev avatar" width={120} height={120} />
         </div>
         <h1 className={styles.name}>superDev</h1>
         <p className={styles.title}>
