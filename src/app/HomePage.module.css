@@ -143,13 +143,13 @@
 }
 
 /* Dark‑mode overrides */
-html.dark .hero {
+:global(html.dark) .hero {
   background: linear-gradient(to right, #1e1e1e, #2a2a2a);
 }
-html.dark .projectCard {
+:global(html.dark) .projectCard {
   background: #222;
 }
-html.dark .skills span {
+:global(html.dark) .skills span {
   background: #2a2a2a;
   color: #ccc;
 }
@@ -160,8 +160,8 @@ html.dark .testimonial blockquote {
 html.dark .testimonial cite {
   color: #888;
 }
-html.dark .contactForm input,
-html.dark .contactForm textarea {
+:global(html.dark) .contactForm input,
+:global(html.dark) .contactForm textarea {
   background: #1a1a1a;
   color: #eee;
   border: 1px solid #444;
