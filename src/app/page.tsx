@@ -30,9 +30,23 @@ export default function HomePage() {
       <section className={styles.section} id="about">
         <h2>About Me</h2>
         <p>
-          I’m a passionate developer and startup enthusiast with a knack for
-          solving problems through code and strategic thinking. I love turning
-          napkin sketches into polished digital products.
+          I’m a passionate and results-driven full-stack web developer based in
+          Kenya. I specialize in building modern, user-friendly applications
+          using React.js for the frontend and Express.js with MySQL for the
+          backend. My core strength lies in creating clean, efficient, and
+          secure code that solves real-world problems — especially in the realm
+          of data management and information systems. Over the past months, I’ve
+          led the development of a web-based data management system for the EPZA
+          Research Department, aimed at replacing inefficient Excel-based
+          workflows. This project not only sharpened my skills in API design,
+          authentication, and database integration but also deepened my
+          understanding of building systems that are reliable, scalable, and
+          easy to maintain. I'm constantly learning, adapting, and exploring new
+          tools that help me create better software — whether it's using
+          Firebase for rapid deployment or optimizing UI/UX to enhance the user
+          experience. I enjoy collaborating with teams, listening to users, and
+          turning complex ideas into smooth digital experiences. Let’s build
+          something great together.
         </p>
       </section>
 
