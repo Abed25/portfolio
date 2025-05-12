@@ -2,6 +2,7 @@
 import "./globals.css";
 import ThemeRegistry from "./ThemeRegistry";
 import NavBar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export const metadata = {
   title: "superDev Portfolio",
@@ -22,6 +23,7 @@ export default function RootLayout({
 
           {/* Then all your page content */}
           {children}
+          <Footer />
         </ThemeRegistry>
       </body>
     </html>
