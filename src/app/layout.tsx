@@ -15,13 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <ThemeRegistry>
-          {/* ← NavBar goes here, inside ThemeRegistry so it inherits theme classes */}
           <NavBar />
-
-          {/* Then all your page content */}
           {children}
           <Footer />
         </ThemeRegistry>
