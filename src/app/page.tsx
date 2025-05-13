@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./HomePage.module.css";
 import avatar from "../../public/croped.jpg";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import Footer from "../components/Footer";
 
 export default function HomePage() {
   return (
@@ -12,108 +14,171 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.avatar}>
-          <Image src={avatar} alt="superDev avatar" width={120} height={120} />
+          <Image src={avatar} alt="Professional headshot" width={150} height={150} className={styles.avatarImage} />
         </div>
-        <h1 className={styles.name}>superDev</h1>
+        <h1 className={styles.name}>Wekesa Abednego</h1>
         <p className={styles.title}>
-          Tech Entrepreneur | Software Developer | Innovator
+          Full-Stack Developer & Technical Consultant
         </p>
         <p className={styles.tagline}>
-          Turning bold ideas into reality through code & strategy.
+          Building scalable, high-performance web applications that drive business growth
         </p>
+        <div className={styles.socialLinks}>
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+            <FaGithub />
+          </a>
+          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin />
+          </a>
+          <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
+            <FaTwitter />
+          </a>
+        </div>
         <a href="#contact" className={styles.cta}>
-          Let’s Connect
+          Let's Discuss Your Project
         </a>
       </section>
 
-      {/* About Section */}
-      <section className={styles.section} id="about">
-        <h2>About Me</h2>
-        <p>
-          Am passionate and results-driven full-stack web developer based in
-          Kenya. I specialize in building modern, user-friendly applications
-          using React.js for the frontend and Express.js with MySQL for the
-          backend. My core strength lies in creating clean, efficient, and
-          secure code that solves real-world problems — especially in the realm
-          of data management and information systems. Over the past months, I
-          have led the development of a web-based data management system for the
-          EPZA Research Department, aimed at replacing inefficient Excel-based
-          workflows. This project not only sharpened my skills in API design,
-          authentication, and database integration but also deepened my
-          understanding of building systems that are reliable, scalable, and
-          easy to maintain. I'm constantly learning, adapting, and exploring new
-          tools that help me create better software — whether it's using
-          Firebase for rapid deployment or optimizing UI/UX to enhance the user
-          experience. I enjoy collaborating with teams, listening to users, and
-          turning complex ideas into smooth digital experiences. Lets build
-          something great together.
-        </p>
+      {/* Services Section */}
+      <section className={styles.section} id="services">
+        <h2>Services I Offer</h2>
+        <div className={styles.services}>
+          <div className={styles.serviceCard}>
+            <h3>Web Application Development</h3>
+            <p>Custom web applications built with modern technologies like React, Next.js, and Node.js</p>
+          </div>
+          <div className={styles.serviceCard}>
+            <h3>Technical Consulting</h3>
+            <p>Expert guidance on technology stack selection, architecture, and development strategy</p>
+          </div>
+          <div className={styles.serviceCard}>
+            <h3>Performance Optimization</h3>
+            <p>Improve your application's speed, scalability, and user experience</p>
+          </div>
+        </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Featured Projects Section */}
       <section className={styles.section} id="projects">
-        <h2>Projects</h2>
+        <h2>Featured Projects</h2>
         <div className={styles.projects}>
           <div className={styles.projectCard}>
-            <Image src="/startup1.png" alt="Startup 1" width={80} height={80} />
-            <p>Startup 1 — AI-driven productivity tool</p>
-            <a href="#">View Project</a>
+            <Image src="/project1.jpg" alt="E-commerce Platform" width={300} height={200} className={styles.projectImage} />
+            <div className={styles.projectContent}>
+              <h3>E-commerce Platform</h3>
+              <p>A high-performance e-commerce solution with real-time inventory management and payment processing</p>
+              <div className={styles.projectTech}>
+                <span>Next.js</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+              </div>
+              <a href="#" className={styles.projectLink}>View Case Study</a>
+            </div>
           </div>
           <div className={styles.projectCard}>
-            <Image src="/startup2.png" alt="Startup 2" width={80} height={80} />
-            <p>Startup 2 — Financial dashboard for entrepreneurs</p>
-            <a href="#">View Project</a>
+            <Image src="/project2.jpg" alt="SaaS Dashboard" width={300} height={200} className={styles.projectImage} />
+            <div className={styles.projectContent}>
+              <h3>SaaS Dashboard</h3>
+              <p>Analytics dashboard for a SaaS company, featuring real-time data visualization and reporting</p>
+              <div className={styles.projectTech}>
+                <span>React</span>
+                <span>TypeScript</span>
+                <span>D3.js</span>
+              </div>
+              <a href="#" className={styles.projectLink}>View Case Study</a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Skills Section */}
       <section className={styles.section} id="skills">
-        <h2>Skills</h2>
+        <h2>Technical Expertise</h2>
         <div className={styles.skills}>
-          <span>React</span>
-          <span>Next.js</span>
-          <span>Node.js</span>
-          <span>MongoDB</span>
-          <span>Product Strategy</span>
-          <span>Pitching</span>
+          <div className={styles.skillCategory}>
+            <h3>Frontend</h3>
+            <div className={styles.skillTags}>
+              <span>React</span>
+              <span>Next.js</span>
+              <span>TypeScript</span>
+              <span>Tailwind CSS</span>
+            </div>
+          </div>
+          <div className={styles.skillCategory}>
+            <h3>Backend</h3>
+            <div className={styles.skillTags}>
+              <span>Node.js</span>
+              <span>Express</span>
+              <span>MongoDB</span>
+              <span>PostgreSQL</span>
+            </div>
+          </div>
+          <div className={styles.skillCategory}>
+            <h3>DevOps & Tools</h3>
+            <div className={styles.skillTags}>
+              <span>Docker</span>
+              <span>AWS</span>
+              <span>Git</span>
+              <span>CI/CD</span>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
       <section className={styles.section} id="testimonials">
-        <h2>Testimonials</h2>
-        <div className={styles.testimonial}>
-          <blockquote>
-            “Working with superDev was transformative. Their tech and business
-            insight are unmatched.”
-          </blockquote>
-          <cite>— Happy Founder, TechCo</cite>
+        <h2>Client Testimonials</h2>
+        <div className={styles.testimonials}>
+          <div className={styles.testimonial}>
+            <blockquote>
+              "Wekesa delivered exceptional results. His technical expertise and attention to detail helped us launch our product ahead of schedule."
+            </blockquote>
+            <cite>
+              <strong>Sarah Johnson</strong>
+              <span>CTO, TechStart Inc.</span>
+            </cite>
+          </div>
+          <div className={styles.testimonial}>
+            <blockquote>
+              "Working with Wekesa was a game-changer for our business. He not only built a great product but also provided valuable insights throughout the process."
+            </blockquote>
+            <cite>
+              <strong>Michael Chen</strong>
+              <span>Founder, GrowthLabs</span>
+            </cite>
+          </div>
         </div>
       </section>
 
       {/* Contact Section */}
       <section className={styles.section} id="contact">
-        <h2>Contact</h2>
-        <p>
-          Email: <a href="mailto:superdev@example.com">superdev@example.com</a>
+        <h2>Let's Work Together</h2>
+        <p className={styles.contactIntro}>
+          I'm currently available for new projects and consulting opportunities. Let's discuss how I can help bring your vision to life.
         </p>
-        <p>
-          LinkedIn:{" "}
-          <a
-            href="https://linkedin.com/in/superdev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            linkedin.com/in/superdev
-          </a>
-        </p>
-        <form className={styles.contactForm}>
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea placeholder="Your Message" required />
-          <button type="submit">Send Message</button>
-        </form>
+        <div className={styles.contactGrid}>
+          <div className={styles.contactInfo}>
+            <h3>Get in Touch</h3>
+            <p>Email: <a href="mailto:wekesaabednego44@gmail.com">wekesaabednego44@gmail.com</a></p>
+            <p>Location: Nairobi, Kenya</p>
+            <p>Available for: Remote & On-site Projects</p>
+          </div>
+          <form className={styles.contactForm}>
+            <div className={styles.formGroup}>
+              <input type="text" placeholder="Your Name" required />
+            </div>
+            <div className={styles.formGroup}>
+              <input type="email" placeholder="Your Email" required />
+            </div>
+            <div className={styles.formGroup}>
+              <input type="text" placeholder="Project Type" required />
+            </div>
+            <div className={styles.formGroup}>
+              <textarea placeholder="Tell me about your project" required rows={5}></textarea>
+            </div>
+            <button type="submit" className={styles.submitButton}>Send Message</button>
+          </form>
+        </div>
       </section>
     </main>
   );
