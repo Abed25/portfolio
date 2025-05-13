@@ -184,8 +184,6 @@ export default function HomePage() {
           </form>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }
