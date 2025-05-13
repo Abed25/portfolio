@@ -1,7 +1,6 @@
 // app/page.tsx
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./HomePage.module.css";
 import avatar from "../../public/croped.jpg";
@@ -24,18 +23,18 @@ export default function HomePage() {
           Building scalable, high-performance web applications that drive business growth
         </p>
         <div className={styles.socialLinks}>
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Abed25" target="_blank" rel="noopener noreferrer">
             <FaGithub />
           </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/abednego-wekesa-b95629365" target="_blank" rel="noopener noreferrer">
             <FaLinkedin />
           </a>
-          <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://twitter.com/web3superdev" target="_blank" rel="noopener noreferrer">
             <FaTwitter />
           </a>
         </div>
         <a href="#contact" className={styles.cta}>
-          Let's Discuss Your Project
+          Let&apos;s Discuss Your Project
         </a>
       </section>
 
@@ -53,7 +52,7 @@ export default function HomePage() {
           </div>
           <div className={styles.serviceCard}>
             <h3>Performance Optimization</h3>
-            <p>Improve your application's speed, scalability, and user experience</p>
+            <p>Improve your application&apos;s speed, scalability, and user experience</p>
           </div>
         </div>
       </section>
@@ -152,9 +151,9 @@ export default function HomePage() {
 
       {/* Contact Section */}
       <section className={styles.section} id="contact">
-        <h2>Let's Work Together</h2>
+        <h2>Let&apos;s Work Together</h2>
         <p className={styles.contactIntro}>
-          I'm currently available for new projects and consulting opportunities. Let's discuss how I can help bring your vision to life.
+          I&apos;m currently available for new projects and consulting opportunities. Let&apos;s discuss how I can help bring your vision to life.
         </p>
         <div className={styles.contactGrid}>
           <div className={styles.contactInfo}>
@@ -186,7 +185,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Add Footer at the end of main */}
       <Footer />
     </main>
   );
