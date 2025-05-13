@@ -6,7 +6,7 @@ import Image from "next/image";
 import styles from "./HomePage.module.css";
 import avatar from "../../public/croped.jpg";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import Footer from "../components/Footer";
+import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
@@ -131,20 +131,20 @@ export default function HomePage() {
         <div className={styles.testimonials}>
           <div className={styles.testimonial}>
             <blockquote>
-              "Wekesa delivered exceptional results. His technical expertise and attention to detail helped us launch our product ahead of schedule."
+              Wekesa delivered exceptional results. His technical expertise and attention to detail helped us launch our product ahead of schedule.
             </blockquote>
             <cite>
               <strong>Sarah Johnson</strong>
-              <span>CTO, TechStart Inc.</span>
+              <span>CEO, TechStart</span>
             </cite>
           </div>
           <div className={styles.testimonial}>
             <blockquote>
-              "Working with Wekesa was a game-changer for our business. He not only built a great product but also provided valuable insights throughout the process."
+              Working with Wekesa was a game-changer for our business. He not only built a great product but also provided valuable insights throughout the process.
             </blockquote>
             <cite>
               <strong>Michael Chen</strong>
-              <span>Founder, GrowthLabs</span>
+              <span>CTO, InnovateCorp</span>
             </cite>
           </div>
         </div>
@@ -158,10 +158,15 @@ export default function HomePage() {
         </p>
         <div className={styles.contactGrid}>
           <div className={styles.contactInfo}>
-            <h3>Get in Touch</h3>
-            <p>Email: <a href="mailto:wekesaabednego44@gmail.com">wekesaabednego44@gmail.com</a></p>
-            <p>Location: Nairobi, Kenya</p>
-            <p>Available for: Remote & On-site Projects</p>
+            <h3>Let&apos;s Connect</h3>
+            <p>Feel free to reach out if you&apos;re looking for a developer, have a question, or just want to connect.</p>
+            <p>
+              <strong>Email:</strong>{" "}
+              <a href="mailto:wekesaabednego44@gmail.com">wekesaabednego44@gmail.com</a>
+            </p>
+            <p>
+              <strong>Location:</strong> Nairobi, Kenya
+            </p>
           </div>
           <form className={styles.contactForm}>
             <div className={styles.formGroup}>
@@ -180,6 +185,9 @@ export default function HomePage() {
           </form>
         </div>
       </section>
+
+      {/* Add Footer at the end of main */}
+      <Footer />
     </main>
   );
 }
