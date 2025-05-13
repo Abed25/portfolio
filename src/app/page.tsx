@@ -5,7 +5,6 @@ import Image from "next/image";
 import styles from "./HomePage.module.css";
 import avatar from "../../public/croped.jpg";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
