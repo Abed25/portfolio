@@ -9,26 +9,32 @@ export default function AboutPage() {
         <h1>About Me</h1>
         <div className={styles.aboutContent}>
           <p>
-            I am a passionate and results-driven full-stack web developer based in Nairobi, Kenya. 
-            I specialize in building modern, user-friendly applications using React.js for the frontend 
-            and Express.js with MySQL for the backend.
+            I&apos;m a full-stack web developer based in Nairobi, Kenya, specializing in building exceptional digital experiences. With a strong foundation in both frontend and backend technologies, I create robust and scalable web applications that help businesses achieve their goals.
           </p>
+          
+          <h2>My Journey</h2>
           <p>
-            My core strength lies in creating clean, efficient, and secure code that solves real-world 
-            problems — especially in the realm of data management and information systems. Over the past 
-            months, I have led the development of a web-based data management system for the EPZA Research 
-            Department, aimed at replacing inefficient Excel-based workflows.
+            My journey in web development began with a passion for creating user-friendly applications that solve real-world problems. Over the years, I&apos;ve worked on various projects ranging from e-commerce platforms to complex data management systems.
           </p>
+
+          <h2>Technical Expertise</h2>
           <p>
-            This project not only sharpened my skills in API design, authentication, and database 
-            integration but also deepened my understanding of building systems that are reliable, 
-            scalable, and easy to maintain.
+            I specialize in modern web technologies including React, Next.js, Node.js, and TypeScript. My approach combines technical excellence with a deep understanding of user experience and business requirements.
           </p>
+
+          <h2>What I Do</h2>
+          <ul>
+            <li>Build responsive and performant web applications</li>
+            <li>Design and implement RESTful APIs</li>
+            <li>Create intuitive user interfaces</li>
+            <li>Optimize application performance</li>
+            <li>Implement secure authentication systems</li>
+            <li>Integrate third-party services and APIs</li>
+          </ul>
+
+          <h2>My Approach</h2>
           <p>
-            I'm constantly learning, adapting, and exploring new tools that help me create better 
-            software — whether it's using Firebase for rapid deployment or optimizing UI/UX to enhance 
-            the user experience. I enjoy collaborating with teams, listening to users, and turning 
-            complex ideas into smooth digital experiences.
+            I believe in writing clean, maintainable code and following best practices in software development. I&apos;m committed to continuous learning and staying up-to-date with the latest technologies and industry trends.
           </p>
         </div>
       </section>
