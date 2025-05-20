@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "../HomePage.module.css";
-import Link from "next/link";
 
 export default function AboutPage() {
   return (
