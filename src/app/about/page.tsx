@@ -52,7 +52,7 @@ export default function AboutPage() {
           <h2>Curriculum Vitae</h2>
           <p>
             Take a look at my Cv{" "}
-            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="/cv.pdf" target="_blank">
               view
             </a>
           </p>
