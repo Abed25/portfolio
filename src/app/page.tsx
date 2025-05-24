@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "./HomePage.module.css";
 import avatar from "../../public/croped.jpg";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import ContactForm from "@/components/contactForm";
 
 export default function HomePage() {
   return (
@@ -236,27 +237,7 @@ export default function HomePage() {
               <strong>Location:</strong> Nairobi, Kenya
             </p>
           </div>
-          <form className={styles.contactForm}>
-            <div className={styles.formGroup}>
-              <input type="text" placeholder="Your Name" required />
-            </div>
-            <div className={styles.formGroup}>
-              <input type="email" placeholder="Your Email" required />
-            </div>
-            <div className={styles.formGroup}>
-              <input type="text" placeholder="Project Type" required />
-            </div>
-            <div className={styles.formGroup}>
-              <textarea
-                placeholder="Tell me about your project"
-                required
-                rows={5}
-              ></textarea>
-            </div>
-            <button type="submit" className={styles.submitButton}>
-              Send Message
-            </button>
-          </form>
+          <ContactForm />
         </div>
       </section>
     </main>
