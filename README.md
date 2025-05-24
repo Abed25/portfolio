@@ -1,6 +1,6 @@
 # 🧑‍💻 My Portfolio – Built with Next.js
 
-Welcome to my portfolio! This is a modern, blazing-fast web application developed with [Next.js](https://nextjs.org), showcasing my projects, skills, and professional journey. It’s fully responsive, SEO-optimized, and designed for a smooth developer and user experience.
+Welcome to my portfolio! This is a modern, blazing-fast web application developed with [Next.js](https://nextjs.org), showcasing my projects, skills, and professional journey. It’s fully responsive, SEO-optimized, and designed for a smooth developer and user experience. green
 
 ---
 
