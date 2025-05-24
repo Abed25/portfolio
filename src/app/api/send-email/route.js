@@ -6,19 +6,19 @@ export async function POST(req) {
   const { name, email, projectType, message } = await req.json();
 
   if (!name || !email || !projectType || !message) {
-    return new Response(JSON.stringify({ error: "Missing fields" }), {
+    return new Response(JSON.stringify({ error: "Missing required fields" }), {
       status: 400,
+      headers: { 'Content-Type': 'application/json' }
     });
   }
 
+  // Create a transporter using Gmail SMTP
   const transporter = nodemailer.createTransport({
-    host: "smtp.example.com",
-    port: 587,
-    secure: false,
+    service: 'gmail',
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS // This should be an App Password from your Google Account
+    }
   });
 
   const emailHtml = `
@@ -30,20 +30,30 @@ export async function POST(req) {
   `;
 
   try {
+    // Send email
     await transporter.sendMail({
-      from: process.env.SMTP_USER,
-      to: "your-email@example.com",
-      subject: `New Inquiry from ${name}`,
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER, // Send to yourself
+      replyTo: email, // Set reply-to as the sender's email
+      subject: `New Project Inquiry from ${name}`,
       html: emailHtml,
     });
 
-    return new Response(JSON.stringify({ message: "Email sent!" }), {
+    return new Response(JSON.stringify({ 
+      success: true,
+      message: "Email sent successfully!" 
+    }), {
       status: 200,
+      headers: { 'Content-Type': 'application/json' }
     });
   } catch (err) {
-    console.error(err);
-    return new Response(JSON.stringify({ error: "Failed to send email" }), {
+    console.error('Email sending error:', err);
+    return new Response(JSON.stringify({ 
+      success: false,
+      error: "Failed to send email. Please try again later." 
+    }), {
       status: 500,
+      headers: { 'Content-Type': 'application/json' }
     });
   }
 }
