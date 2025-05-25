@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import styles from '../app/HomePage.module.css';
 import { IoClose } from "react-icons/io5";
 import { FaMicrophone, FaMicrophoneSlash, FaVolumeUp, FaVolumeMute } from "react-icons/fa";
@@ -32,6 +32,73 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   const synthesisRef = useRef<SpeechSynthesis | null>(null);
   const isMountedRef = useRef(true);
+
+  const speakMessage = useCallback((text: string) => {
+    if (!synthesisRef.current) return;
+
+    try {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.onstart = () => {
+        if (isMountedRef.current) {
+          setIsSpeaking(true);
+        }
+      };
+      utterance.onend = () => {
+        if (isMountedRef.current) {
+          setIsSpeaking(false);
+        }
+      };
+      utterance.onerror = () => {
+        if (isMountedRef.current) {
+          setIsSpeaking(false);
+        }
+      };
+      synthesisRef.current.speak(utterance);
+    } catch {
+      console.error('Error speaking message');
+      setIsSpeaking(false);
+    }
+  }, []);
+
+  const handleSubmit = useCallback(async (e: React.FormEvent, voiceInput?: string) => {
+    e.preventDefault();
+    const messageToSend = voiceInput || input.trim();
+    if (!messageToSend) return;
+
+    setInput('');
+    setMessages(prev => [...prev, { role: 'user', content: messageToSend }]);
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: messageToSend }),
+      });
+
+      const data = await response.json();
+      
+      if (response.ok) {
+        const assistantMessage = { role: 'assistant' as const, content: data.message };
+        setMessages(prev => [...prev, assistantMessage]);
+        if (isSpeaking) {
+          speakMessage(data.message);
+        }
+      } else {
+        setMessages(prev => [...prev, { 
+          role: 'assistant', 
+          content: "I apologize, but I'm having trouble processing your request right now. Please try again later." 
+        }]);
+      }
+    } catch (error) {
+      setMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: "I apologize, but I'm having trouble connecting right now. Please try again later." 
+      }]);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [input, isSpeaking, speakMessage]);
 
   // Initialize speech recognition
   useEffect(() => {
@@ -144,33 +211,6 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
     }
   };
 
-  const speakMessage = (text: string) => {
-    if (!synthesisRef.current) return;
-
-    try {
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.onstart = () => {
-        if (isMountedRef.current) {
-          setIsSpeaking(true);
-        }
-      };
-      utterance.onend = () => {
-        if (isMountedRef.current) {
-          setIsSpeaking(false);
-        }
-      };
-      utterance.onerror = () => {
-        if (isMountedRef.current) {
-          setIsSpeaking(false);
-        }
-      };
-      synthesisRef.current.speak(utterance);
-    } catch (error) {
-      console.error('Error speaking message:', error);
-      setIsSpeaking(false);
-    }
-  };
-
   const toggleListening = async () => {
     if (!recognitionRef.current) return;
 
@@ -211,46 +251,6 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
   const closePermissionGuide = () => {
     setShowPermissionGuide(false);
     setPermissionError(null);
-  };
-
-  const handleSubmit = async (e: React.FormEvent, voiceInput?: string) => {
-    e.preventDefault();
-    const messageToSend = voiceInput || input.trim();
-    if (!messageToSend) return;
-
-    setInput('');
-    setMessages(prev => [...prev, { role: 'user', content: messageToSend }]);
-    setIsLoading(true);
-
-    try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: messageToSend }),
-      });
-
-      const data = await response.json();
-      
-      if (response.ok) {
-        const assistantMessage = { role: 'assistant' as const, content: data.message };
-        setMessages(prev => [...prev, assistantMessage]);
-        if (isSpeaking) {
-          speakMessage(data.message);
-        }
-      } else {
-        setMessages(prev => [...prev, { 
-          role: 'assistant', 
-          content: "I apologize, but I'm having trouble processing your request right now. Please try again later." 
-        }]);
-      }
-    } catch (error) {
-      setMessages(prev => [...prev, { 
-        role: 'assistant', 
-        content: "I apologize, but I'm having trouble connecting right now. Please try again later." 
-      }]);
-    } finally {
-      setIsLoading(false);
-    }
   };
 
   if (!isOpen) return null;
