@@ -86,19 +86,19 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
       if (recognitionRef.current) {
         try {
           recognitionRef.current.stop();
-        } catch (error) {
-          console.error('Error stopping recognition:', error);
+        } catch {
+          console.error('Error stopping recognition');
         }
       }
       if (synthesisRef.current) {
         try {
           synthesisRef.current.cancel();
-        } catch (error) {
-          console.error('Error canceling synthesis:', error);
+        } catch {
+          console.error('Error canceling synthesis');
         }
       }
     };
-  }, []);
+  }, [handleSubmit]);
 
   const scrollToBottom = () => {
     if (messagesEndRef.current) {
