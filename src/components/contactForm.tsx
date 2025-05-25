@@ -38,26 +38,36 @@ export default function ContactForm() {
     setStatus({ type: null, message: '' });
 
     try {
-      const res = await fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      // Send both email and Telegram notification
+      const [emailRes, telegramRes] = await Promise.all([
+        fetch("/api/send-email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }),
+        fetch("/api/send-telegram", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        })
+      ]);
 
-      const data = await res.json();
+      const [emailData, telegramData] = await Promise.all([
+        emailRes.json(),
+        telegramRes.json()
+      ]);
 
-      if (res.ok) {
+      if (emailRes.ok && telegramRes.ok) {
         setStatus({
           type: 'success',
           message: 'Message sent successfully! I will get back to you soon.'
         });
         setFormData({ name: "", email: "", projectType: "", message: "" });
       } else {
+        const errorMessage = emailData.error || telegramData.error || 'Failed to send message. Please try again.';
         setStatus({
           type: 'error',
-          message: data.error || 'Failed to send message. Please try again.'
+          message: errorMessage
         });
       }
     } catch (err) {
