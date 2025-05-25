@@ -1,18 +1,43 @@
 /* src/app/globals.css */
 
+/* Base styles and transitions */
 html {
   transition: background 0.3s ease, color 0.3s ease;
   font-family: "Segoe UI", sans-serif;
-}
-
-/* light theme */
-html.light {
   background: #ffffff;
   color: #333333;
 }
 
-/* dark theme */
+/* Default light theme variables */
+:root {
+  --nav-bg: #ffffff;
+  --text-color: #333333;
+  --accent-color: #2563eb;
+  --hover-bg: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --background: #ffffff;
+}
+
+/* Dark theme */
 html.dark {
   background: #121212;
   color: #f2f2f2;
+  --nav-bg: #111111;
+  --text-color: #ffffff;
+  --accent-color: #60a5fa;
+  --hover-bg: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --background: #121212;
+}
+
+/* Ensure light theme is explicitly set */
+html.light {
+  background: #ffffff;
+  color: #333333;
+  --nav-bg: #ffffff;
+  --text-color: #333333;
+  --accent-color: #2563eb;
+  --hover-bg: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --background: #ffffff;
 }

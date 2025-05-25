@@ -1,168 +1,224 @@
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  width: 100%;
-  background: var(--nav-bg, #ffffff);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  left: 0;
+  right: 0;
+  background: var(--nav-bg);
+  box-shadow: 0 2px 4px var(--shadow-color);
   z-index: 1000;
+  padding: 1rem 0;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
+  align-items: center;
 }
 
 .logo a {
-  font-family: "Inter", sans-serif;
   font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--accent-color, #0070f3);
+  font-weight: 700;
+  color: var(--text-color);
   text-decoration: none;
+  background: linear-gradient(45deg, #2563eb, #4f46e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: color 0.3s ease;
 }
 
 .toggle {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 18px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 0.5rem;
 }
 
 .bar {
   display: block;
-  height: 2px;
-  background: var(--text-color, #333333);
-  border-radius: 1px;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: var(--text-color);
+  transition: all 0.3s ease;
 }
 
 .nav {
   display: flex;
-  gap: 1.5rem;
-  align-items: center;
+  gap: 2rem;
+  background: var(--nav-bg);
+  transition: background-color 0.3s ease;
 }
 
 .link {
-  font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  color: var(--text-color, #333333);
+  color: var(--text-color);
   text-decoration: none;
-  position: relative;
-  padding: 0.25rem 0;
-  transition: color 0.2s;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .link:hover {
-  color: var(--accent-color, #0070f3);
+  color: var(--accent-color);
 }
 
-.link::after {
-  content: "";
+.link.active {
+  color: var(--accent-color);
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.aiAssistantBtn {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.aiAssistantBtn:hover {
+  background: var(--hover-bg);
+}
+
+.aiIconWrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aiIcon {
+  font-size: 20px;
+  color: var(--text-color);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.aiBrainIcon {
   position: absolute;
-  left: 0;
+  font-size: 12px;
+  color: var(--accent-color);
   bottom: -2px;
-  width: 0;
-  height: 2px;
-  background: var(--accent-color, #0070f3);
-  transition: width 0.2s;
+  right: -2px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
 }
 
-.link:hover::after,
-.link:focus::after {
-  width: 100%;
+.aiAssistantBtn:hover .aiIcon {
+  transform: scale(1.1);
 }
 
-.active {
-  font-weight: bold;
-  color: var(--accent-color, #0070f3);
+.aiAssistantBtn:hover .aiBrainIcon {
+  transform: scale(1.2);
+  opacity: 1;
 }
 
 .toggleThemeBtn {
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-  background: transparent;
-  border: 1px solid var(--text-color);
-  border-radius: 6px;
+  background: none;
+  border: none;
+  padding: 8px;
   cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
-  position: absolute;
-  top: 6px;
-  right: -10px;
+  color: var(--text-color);
 }
 
 .toggleThemeBtn:hover {
-  background: var(--accent-color);
-  color: #fff;
+  background: var(--hover-bg);
 }
 
+/* Tooltip styles */
+.aiAssistantBtn::after {
+  content: attr(title);
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  background: var(--nav-bg);
+  color: var(--text-color);
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: normal;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  width: max-content;
+  max-width: min(300px, calc(100vw - 40px));
+  text-align: center;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  z-index: 1001;
+}
+
+.aiAssistantBtn:hover::after {
+  opacity: 1;
+  visibility: visible;
+  bottom: -45px;
+}
+
+/* Adjust tooltip position for mobile */
 @media (max-width: 768px) {
   .toggle {
-    display: flex;
+    display: block;
   }
 
   .nav {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 70px;
     left: 0;
     right: 0;
-    background: var(--nav-bg, #ffffff);
+    background: var(--nav-bg);
+    padding: 1rem;
     flex-direction: column;
     align-items: center;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    gap: 1rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
   }
 
   .nav.open {
-    max-height: 300px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
   }
-  .toggleThemeBtn {
-    top: 10px;
-    right: 60px;
-  }
-  .link {
-    padding: 1rem 0;
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid #e0e0e0;
-  }
-}
 
-/* Dark mode overrides */
-:global {
-  html.dark {
-    --nav-bg: #111;
-    --text-color: #eee;
-    --accent-color: #1e90ff;
+  .aiAssistantBtn::after {
+    left: auto;
+    right: 0;
+    transform: none;
+    bottom: -35px;
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .aiAssistantBtn:hover::after {
+    bottom: -40px;
   }
 }
 
-:global(html.dark) .header {
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-  background: var(--nav-bg, #111);
-}
-
-:global(html.dark) .bar {
-  background-color: #eee;
-}
-:global(html.dark) .nav {
-  background: var(--nav-bg, #111);
-}
-
-:global(html.dark) .link {
-  color: var(--text-color);
-  border-bottom-color: #333;
-}
-
-:global(html.dark) .link:hover::after,
-:global(html.dark) .link:focus::after {
-  background: var(--accent-color);
+/* Ensure tooltip stays within viewport on very small screens */
+@media (max-width: 360px) {
+  .aiAssistantBtn::after {
+    right: -10px;
+    max-width: calc(100vw - 20px);
+  }
 }
