@@ -1,57 +1,82 @@
 # 🧑‍💻 My Portfolio – Built with Next.js
 
-Welcome to my portfolio! This is a modern, blazing-fast web application developed with [Next.js](https://nextjs.org), showcasing my projects, skills, and professional journey. It’s fully responsive, SEO-optimized, and designed for a smooth developer and user experience. green
+Welcome to my portfolio! A blazing-fast, fully responsive web app built with [Next.js 13+](https://nextjs.org) App Router — designed to showcase my work, skills, and story with a sleek developer-friendly experience.
+
+## ✨ What’s New
+
+- 🤖 **AI Virtual Assistant** – Ask portfolio-related questions in real-time  
+- 🎤 **Voice Capabilities** – Input/output with speech  
+- 💬 **Real-time Chat Interface**  
+- 📧 **Gmail-integrated Contact Form** with 📱 **Telegram Notifications**  
+- 🔍 **Smart Search** and enhanced navigation  
+- 🌓 Dark/Light Mode synced to system preference
+
+## 🚀 Tech Stack
+
+- **Framework**: Next.js 13+  
+- **Styling**: CSS Modules  
+- **AI & Chat**: OpenAI API  
+- **Email**: Nodemailer  
+- **Notifications**: Telegram Bot API  
+- **Deployment**: Vercel
+
+## ⚙️ Setup
+
+### Prerequisites
+
+- Node.js 18+
+
+### Installation
+
+```bash
+git clone https://github.com/yourusername/my-portfolio.git
+cd my-portfolio
+npm install  # or yarn / pnpm / bun
+npm run dev  # or yarn dev / pnpm dev / bun dev
+```
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+# Email
+EMAIL_SERVICE=gmail
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-password
+
+# Telegram
+TELEGRAM_BOT_TOKEN=your-bot-token
+TELEGRAM_CHAT_ID=your-chat-id
+
+# OpenAI
+OPENAI_API_KEY=your-api-key
+```
+
+## ☁️ Deployment
+
+Deployed on **Vercel**:
+
+1. Fork or clone this repo  
+2. Push to your GitHub  
+3. Import into Vercel  
+4. Add environment variables  
+5. Deploy 🚀
+
+## 📚 Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)  
+- [OpenAI API Docs](https://platform.openai.com/docs)  
+- [Telegram Bot API](https://core.telegram.org/bots/api)
+
+## 🙌 Contributions
+
+Pull requests are welcome. For major changes, please open an issue first.
+
+## 📝 License
+
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file.
 
 ---
 
-## 🚀 Getting Started
-
-To run this project locally:
-
-```bash
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-
-
-🧩 Features
-⚡ Built with Next.js 13+ App Router
-
-🎨 Styled with Geist font from Vercel
-
-📱 Responsive design across all devices
-
-🧠 SEO optimized for personal branding
-
-☁️ Deployed on Vercel
-
-📚 Learn More
-Next.js Documentation
-
-Interactive Next.js Tutorial
-
-Vercel Fonts
-
-🚀 Deployment
-This portfolio is deployed using Vercel, enabling fast performance and automatic deployments.
-
-To deploy your own version:
-
-Fork or clone this repository.
-
-Push to your own GitHub account.
-
-Import the repo into Vercel and follow the setup instructions.
-
-More info: Next.js Deployment Guide
-
-🙌 Feedback & Contributions
-Have suggestions or improvements? Feel free to fork the project and open a pull request, or submit an issue. I’d love to hear from you!
+Made with ❤️ by **SuperDev**
