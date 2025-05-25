@@ -2,10 +2,8 @@
 
 /* Base styles and transitions */
 html {
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-family: "Segoe UI", sans-serif;
-  background: #ffffff;
-  color: #333333;
 }
 
 /* Default light theme variables */
@@ -16,12 +14,11 @@ html {
   --hover-bg: rgba(0, 0, 0, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.1);
   --background: #ffffff;
+  --transition-duration: 0.3s;
 }
 
 /* Dark theme */
 html.dark {
-  background: #121212;
-  color: #f2f2f2;
   --nav-bg: #111111;
   --text-color: #ffffff;
   --accent-color: #60a5fa;
@@ -32,12 +29,23 @@ html.dark {
 
 /* Ensure light theme is explicitly set */
 html.light {
-  background: #ffffff;
-  color: #333333;
   --nav-bg: #ffffff;
   --text-color: #333333;
   --accent-color: #2563eb;
   --hover-bg: rgba(0, 0, 0, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.1);
   --background: #ffffff;
+}
+
+/* Add transition to all theme-dependent properties */
+* {
+  transition: background-color var(--transition-duration) ease,
+              color var(--transition-duration) ease,
+              border-color var(--transition-duration) ease,
+              box-shadow var(--transition-duration) ease;
+}
+
+/* Prevent transition on page load */
+.no-transition * {
+  transition: none !important;
 }

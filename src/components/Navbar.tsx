@@ -3,35 +3,33 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
 import styles from "./NavBar.module.css";
 import { FaMoon, FaSun, FaBrain, FaUserAstronaut } from "react-icons/fa";
 import AIChat from "./AIChat";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains('dark');
-    setIsDarkMode(isDark);
-  }, []);
-
   const toggleTheme = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    document.documentElement.classList.toggle('dark');
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
   };
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <>
@@ -42,28 +40,30 @@ export default function NavBar() {
           </div>
 
           {/* Theme Toggle and AI Assistant Buttons */}
-          {mounted && (
-            <div className={styles.actionButtons}>
-              <button 
-                className={styles.aiAssistantBtn} 
-                onClick={toggleChat}
-                title="Chat with superdev's AI Agent - Your intelligent assistant for exploring skills, projects, and services"
-                aria-label="Open AI chat"
-              >
-                <div className={styles.aiIconWrapper}>
-                  <FaUserAstronaut className={styles.aiIcon} />
-                  <FaBrain className={styles.aiBrainIcon} />
-                </div>
-              </button>
-              <button className={styles.toggleThemeBtn} onClick={toggleTheme}>
-                {isDarkMode ? (
-                  <FaSun style={{ color: "#fff", fontSize: "20px" }} />
-                ) : (
-                  <FaMoon style={{ color: "#000", fontSize: "20px" }} />
-                )}
-              </button>
-            </div>
-          )}
+          <div className={styles.actionButtons}>
+            <button 
+              className={styles.aiAssistantBtn} 
+              onClick={toggleChat}
+              title="Chat with superdev's AI Agent - Your intelligent assistant for exploring skills, projects, and services"
+              aria-label="Open AI chat"
+            >
+              <div className={styles.aiIconWrapper}>
+                <FaUserAstronaut className={styles.aiIcon} />
+                <FaBrain className={styles.aiBrainIcon} />
+              </div>
+            </button>
+            <button 
+              className={styles.toggleThemeBtn} 
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+            >
+              {theme === 'dark' ? (
+                <FaSun style={{ color: "#fff", fontSize: "20px" }} />
+              ) : (
+                <FaMoon style={{ color: "#000", fontSize: "20px" }} />
+              )}
+            </button>
+          </div>
 
           {/* Menu Toggle (Mobile) */}
           <button
@@ -77,7 +77,7 @@ export default function NavBar() {
           </button>
 
           {/* Navigation Links */}
-          <nav className={`${styles.nav} ${menuOpen ? styles.open : ""}`}>
+          <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
             {[
               { href: "/", label: "Home" },
               { href: "/about", label: "About" },

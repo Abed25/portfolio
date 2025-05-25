@@ -23,9 +23,10 @@ export default function ThemeRegistry({
   return (
     <ThemeProvider
       attribute="class"
-      defaultTheme="light"
-      enableSystem={false}
-      disableTransitionOnChange
+      defaultTheme="system"
+      enableSystem={true}
+      storageKey="portfolio-theme"
+      disableTransitionOnChange={false}
     >
       {children}
     </ThemeProvider>
