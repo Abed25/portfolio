@@ -90,7 +90,7 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
           content: "I apologize, but I'm having trouble processing your request right now. Please try again later." 
         }]);
       }
-    } catch (error) {
+    } catch {
       setMessages(prev => [...prev, { 
         role: 'assistant', 
         content: "I apologize, but I'm having trouble connecting right now. Please try again later." 
