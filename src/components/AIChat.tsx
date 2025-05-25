@@ -49,7 +49,7 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
           if (!isMountedRef.current) return;
           const transcript = event.results[0][0].transcript;
           setInput(transcript);
-          handleSubmit(new Event('submit') as any, transcript);
+          handleSubmit(new Event('submit') as unknown as React.FormEvent<HTMLFormElement>);
         };
 
         recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
@@ -292,12 +292,13 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
             </div>
           )}
           {showPermissionGuide && (
-            <div className={`${styles.message} ${styles.permissionGuide}`}>
-              <h4>How to Enable Microphone Access:</h4>
+            <div className={styles.permissionGuide}>
+              <h4>Microphone Access Required</h4>
+              <p>To use voice features, please allow microphone access:</p>
               <ol>
-                <li>Click the lock/info icon in your browser's address bar</li>
-                <li>Find the microphone permission setting</li>
-                <li>Change it to "Allow"</li>
+                <li>Click the lock/info icon in your browser&apos;s address bar</li>
+                <li>Find &quot;Microphone&quot; in the permissions list</li>
+                <li>Change the setting to &quot;Allow&quot;</li>
                 <li>Refresh the page</li>
               </ol>
               <button 
