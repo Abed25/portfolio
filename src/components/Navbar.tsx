@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./NavBar.module.css";
-import { FaMoon, FaSun, FaRobot, FaBrain, FaUserAstronaut } from "react-icons/fa";
-import { RiRobot2Line } from "react-icons/ri";
+import { FaMoon, FaSun, FaBrain, FaUserAstronaut } from "react-icons/fa";
 import AIChat from "./AIChat";
 
 export default function NavBar() {
