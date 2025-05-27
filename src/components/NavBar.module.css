@@ -39,7 +39,7 @@
   cursor: pointer;
   padding: 0.5rem;
   position: absolute;
-  right: 1rem;
+  left: 1rem;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1001;
@@ -208,9 +208,14 @@
     opacity: 1;
     visibility: visible;
   }
+  .logo {
+    margin-left: 3rem;
+  }
 
   .actionButtons {
-    margin-right: 3rem;
+    position: absolute;
+    gap: 0.5rem;
+    margin-left: 40%;
   }
 
   .aiAssistantBtn::after {
