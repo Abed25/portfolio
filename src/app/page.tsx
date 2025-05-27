@@ -12,8 +12,8 @@ export default function HomePage() {
   return (
     <main className={styles.main}>
       {/* Hero Section */}
-      <AnimatedSection direction="left">
-        <section className={styles.hero}>
+      <section className={styles.hero}>
+        <AnimatedSection direction="top" delay={0.5}>
           <div className={styles.avatar}>
             <Image
               src={avatar}
@@ -23,14 +23,22 @@ export default function HomePage() {
               className={styles.avatarImage}
             />
           </div>
+        </AnimatedSection>
+        <AnimatedSection direction="top" delay={0.3}>
           <h1 className={styles.name}>Wekesa Abednego</h1>
+        </AnimatedSection>
+        <AnimatedSection direction="left" delay={0.4}>
           <p className={styles.title}>
             Full-Stack Developer & Technical Consultant
           </p>
+        </AnimatedSection>
+        <AnimatedSection direction="right" delay={0.6}>
           <p className={styles.tagline}>
             Building scalable, high-performance web applications that drive
             business growth
           </p>
+        </AnimatedSection>
+        <AnimatedSection direction="bottom" delay={0.4}>
           <div className={styles.socialLinks}>
             <a
               href="https://github.com/Abed25"
@@ -54,11 +62,13 @@ export default function HomePage() {
               <FaTwitter />
             </a>
           </div>
+        </AnimatedSection>
+        <AnimatedSection direction="pop" delay={0.9}>
           <a href="#contact" className={styles.cta}>
             Let&apos;s Discuss Your Project
           </a>
-        </section>
-      </AnimatedSection>
+        </AnimatedSection>
+      </section>
 
       {/* Services Section */}
       <section className={styles.section} id="services">
@@ -70,12 +80,12 @@ export default function HomePage() {
             <AnimatedCard className={styles.serviceCard}>
               <h3>Web Application Development</h3>
               <p>
-                Custom web applications built with modern technologies like React,
-                Next.js, and Node.js
+                Custom web applications built with modern technologies like
+                React, Next.js, and Node.js
               </p>
             </AnimatedCard>
           </AnimatedSection>
-          <AnimatedSection direction="right" delay={0.6}>
+          <AnimatedSection direction="left" delay={0.6}>
             <AnimatedCard className={styles.serviceCard}>
               <h3>Technical Consulting</h3>
               <p>
@@ -114,8 +124,8 @@ export default function HomePage() {
               <div className={styles.projectContent}>
                 <h3>E-commerce Platform</h3>
                 <p>
-                  A high-performance e-commerce solution with real-time inventory
-                  management and payment processing
+                  A high-performance e-commerce solution with real-time
+                  inventory management and payment processing
                 </p>
                 <div className={styles.projectTech}>
                   <span>Next.js</span>
@@ -140,8 +150,8 @@ export default function HomePage() {
               <div className={styles.projectContent}>
                 <h3>SaaS Dashboard</h3>
                 <p>
-                  Analytics dashboard for a SaaS company, featuring real-time data
-                  visualization and reporting
+                  Analytics dashboard for a SaaS company, featuring real-time
+                  data visualization and reporting
                 </p>
                 <div className={styles.projectTech}>
                   <span>React</span>
@@ -219,8 +229,8 @@ export default function HomePage() {
           <AnimatedSection direction="right" delay={0.3}>
             <AnimatedCard className={styles.testimonial}>
               <blockquote>
-                Wekesa delivered exceptional results. His technical expertise and
-                attention to detail helped us launch our product ahead of
+                Wekesa delivered exceptional results. His technical expertise
+                and attention to detail helped us launch our product ahead of
                 schedule.
               </blockquote>
               <cite>
