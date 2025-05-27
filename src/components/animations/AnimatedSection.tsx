@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 interface AnimatedSectionProps {
   children: ReactNode;
-  direction: 'left' | 'right';
+  direction: 'left' | 'right' | 'bottom' | 'top' | 'pop';
   delay?: number;
   className?: string;
 }
@@ -16,11 +16,15 @@ export const AnimatedSection = ({
 }: AnimatedSectionProps) => {
   const variants = {
     hidden: {
-      x: direction === 'left' ? -100 : 100,
+      x: direction === 'left' ? -100 : direction === 'right' ? 100 : 0,
+      y: direction === 'top' ? -100 : direction === 'bottom' ? 100 : 0,
+      scale: direction === 'pop' ? 0.5 : 1,
       opacity: 0
     },
     visible: {
       x: 0,
+      y: 0,
+      scale: 1,
       opacity: 1,
       transition: {
         duration: 1.2,
