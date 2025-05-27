@@ -1,6 +1,6 @@
 "use client";
 import { useState, useRef, useEffect, useCallback } from "react";
-import styles from "../app/HomePage.module.css";
+import styles from "./AIChat.module.css";
 import { IoClose } from "react-icons/io5";
 import {
   FaMicrophone,
@@ -52,148 +52,167 @@ export default function AIChat({ isOpen, onClose }: AIChatProps) {
       const handleVoicesLoaded = () => {
         if (synthesisRef.current) {
           const voices = synthesisRef.current.getVoices();
-          console.log("Available voices:", voices.map(v => v.name));
+          console.log(
+            "Available voices:",
+            voices.map((v) => v.name)
+          );
           setVoicesLoaded(true);
         }
       };
 
       // Some browsers load voices asynchronously
       if (synthesisRef.current.getVoices().length === 0) {
-        synthesisRef.current.addEventListener("voiceschanged", handleVoicesLoaded);
+        synthesisRef.current.addEventListener(
+          "voiceschanged",
+          handleVoicesLoaded
+        );
       } else {
         handleVoicesLoaded();
       }
 
       return () => {
         if (synthesisRef.current) {
-          synthesisRef.current.removeEventListener("voiceschanged", handleVoicesLoaded);
+          synthesisRef.current.removeEventListener(
+            "voiceschanged",
+            handleVoicesLoaded
+          );
           synthesisRef.current.cancel();
         }
       };
     }
   }, []);
 
-  const speakMessage = useCallback((text: string) => {
-    if (!synthesisRef.current || !voicesLoaded) {
-      console.error("Speech synthesis or voices not available");
-      return;
-    }
-
-    // Clear any existing timeout
-    if (speechTimeoutRef.current) {
-      clearTimeout(speechTimeoutRef.current);
-    }
-
-    // If already speaking, stop it first
-    if (isSpeakingRef.current) {
-      synthesisRef.current.cancel();
-      isSpeakingRef.current = false;
-      setIsSpeaking(false);
-    }
-
-    try {
-      const utterance = new SpeechSynthesisUtterance(text);
-      currentUtteranceRef.current = utterance;
-
-      // Configure speech settings
-      utterance.rate = 1.0;
-      utterance.pitch = 1.0;
-      utterance.volume = 1.0;
-
-      // Get available voices and set a good default
-      const voices = synthesisRef.current.getVoices();
-      if (voices.length === 0) {
-        console.warn("No voices available");
+  const speakMessage = useCallback(
+    (text: string) => {
+      if (!synthesisRef.current || !voicesLoaded) {
+        console.error("Speech synthesis or voices not available");
         return;
       }
 
-      // Try to find a preferred voice
-      const preferredVoice = voices.find(
-        (voice) => 
-          voice.name === "Microsoft David Desktop" || 
-          voice.name === "Google UK English Male" ||
-          voice.name === "Samantha" ||
-          voice.name === "Microsoft Zira Desktop" ||
-          voice.name === "Google UK English Female" ||
-          voice.name === "Microsoft Mark Desktop" ||
-          voice.name === "Microsoft James Desktop"
-      );
-
-      if (preferredVoice) {
-        utterance.voice = preferredVoice;
-        console.log("Using voice:", preferredVoice.name);
-      } else {
-        // Fallback to first available voice
-        utterance.voice = voices[0];
-        console.log("Using fallback voice:", voices[0].name);
+      // Clear any existing timeout
+      if (speechTimeoutRef.current) {
+        clearTimeout(speechTimeoutRef.current);
       }
 
-      // Ensure the voice is set before speaking
-      if (!utterance.voice) {
-        console.error("No voice could be set");
-        return;
+      // If already speaking, stop it first
+      if (isSpeakingRef.current) {
+        synthesisRef.current.cancel();
+        isSpeakingRef.current = false;
+        setIsSpeaking(false);
       }
 
-      utterance.onstart = () => {
-        if (isMountedRef.current) {
-          isSpeakingRef.current = true;
-          setIsSpeaking(true);
-          console.log("Speech started");
-        }
-      };
+      try {
+        const utterance = new SpeechSynthesisUtterance(text);
+        currentUtteranceRef.current = utterance;
 
-      utterance.onend = () => {
-        if (isMountedRef.current) {
-          isSpeakingRef.current = false;
-          setIsSpeaking(false);
-          currentUtteranceRef.current = null;
-          console.log("Speech ended");
-        }
-      };
+        // Configure speech settings
+        utterance.rate = 1.0;
+        utterance.pitch = 1.0;
+        utterance.volume = 1.0;
 
-      utterance.onerror = (event) => {
-        // Only handle non-interrupted errors
-        if (event.error !== 'interrupted') {
-          const errorMessage = event.error ? 
-            `Speech synthesis error: ${event.error}` : 
-            'Unknown speech synthesis error';
-          console.error(errorMessage);
-          
+        // Get available voices and set a good default
+        const voices = synthesisRef.current.getVoices();
+        if (voices.length === 0) {
+          console.warn("No voices available");
+          return;
+        }
+
+        // Try to find a preferred voice
+        const preferredVoice = voices.find(
+          (voice) =>
+            voice.name === "Microsoft David Desktop" ||
+            voice.name === "Google UK English Male" ||
+            voice.name === "Samantha" ||
+            voice.name === "Microsoft Zira Desktop" ||
+            voice.name === "Google UK English Female" ||
+            voice.name === "Microsoft Mark Desktop" ||
+            voice.name === "Microsoft James Desktop"
+        );
+
+        if (preferredVoice) {
+          utterance.voice = preferredVoice;
+          console.log("Using voice:", preferredVoice.name);
+        } else {
+          // Fallback to first available voice
+          utterance.voice = voices[0];
+          console.log("Using fallback voice:", voices[0].name);
+        }
+
+        // Ensure the voice is set before speaking
+        if (!utterance.voice) {
+          console.error("No voice could be set");
+          return;
+        }
+
+        utterance.onstart = () => {
+          if (isMountedRef.current) {
+            isSpeakingRef.current = true;
+            setIsSpeaking(true);
+            console.log("Speech started");
+          }
+        };
+
+        utterance.onend = () => {
           if (isMountedRef.current) {
             isSpeakingRef.current = false;
             setIsSpeaking(false);
             currentUtteranceRef.current = null;
-            
-            // Add error message to chat
-            setMessages(prev => [...prev, {
-              role: "assistant",
-              content: "I apologize, but I'm having trouble speaking right now. Please try again."
-            }]);
+            console.log("Speech ended");
           }
-        }
-      };
+        };
 
-      // Add a small delay before speaking to ensure everything is ready
-      speechTimeoutRef.current = setTimeout(() => {
-        if (isMountedRef.current && synthesisRef.current) {
-          synthesisRef.current.speak(utterance);
-          console.log("Speaking with voice:", utterance.voice?.name);
-        }
-      }, 100);
+        utterance.onerror = (event) => {
+          // Only handle non-interrupted errors
+          if (event.error !== "interrupted") {
+            const errorMessage = event.error
+              ? `Speech synthesis error: ${event.error}`
+              : "Unknown speech synthesis error";
+            console.error(errorMessage);
 
-    } catch (error) {
-      console.error("Error in speech synthesis:", error);
-      isSpeakingRef.current = false;
-      setIsSpeaking(false);
-      currentUtteranceRef.current = null;
-      
-      // Add error message to chat
-      setMessages(prev => [...prev, {
-        role: "assistant",
-        content: "I apologize, but I'm having trouble speaking right now. Please try again."
-      }]);
-    }
-  }, [voicesLoaded]);
+            if (isMountedRef.current) {
+              isSpeakingRef.current = false;
+              setIsSpeaking(false);
+              currentUtteranceRef.current = null;
+
+              // Add error message to chat
+              setMessages((prev) => [
+                ...prev,
+                {
+                  role: "assistant",
+                  content:
+                    "I apologize, but I'm having trouble speaking right now. Please try again.",
+                },
+              ]);
+            }
+          }
+        };
+
+        // Add a small delay before speaking to ensure everything is ready
+        speechTimeoutRef.current = setTimeout(() => {
+          if (isMountedRef.current && synthesisRef.current) {
+            synthesisRef.current.speak(utterance);
+            console.log("Speaking with voice:", utterance.voice?.name);
+          }
+        }, 100);
+      } catch (error) {
+        console.error("Error in speech synthesis:", error);
+        isSpeakingRef.current = false;
+        setIsSpeaking(false);
+        currentUtteranceRef.current = null;
+
+        // Add error message to chat
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content:
+              "I apologize, but I'm having trouble speaking right now. Please try again.",
+          },
+        ]);
+      }
+    },
+    [voicesLoaded]
+  );
 
   // Cleanup function
   useEffect(() => {
