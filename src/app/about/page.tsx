@@ -126,7 +126,7 @@ export default function AboutPage() {
             transition={{ delay: 0.6, duration: 0.5 }}
             className={styles.section}
           >
-            <h2 className={styles.sectionTitle}>Let's Connect</h2>
+            <h2 className={styles.sectionTitle}>Let&apos;s Connect</h2>
             <p className={styles.sectionContent}>
               I&apos;m always interested in hearing about new projects and opportunities.
               Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
