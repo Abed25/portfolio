@@ -21,7 +21,7 @@ export default function AboutPage() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className={styles.intro}
           >
-            I'm a passionate full-stack developer with a keen eye for creating elegant solutions
+            I&apos;m a passionate full-stack developer with a keen eye for creating elegant solutions
             to complex problems. With expertise in modern web technologies and a strong foundation
             in software engineering principles, I strive to build applications that are both
             beautiful and functional.
@@ -36,7 +36,7 @@ export default function AboutPage() {
             <h2 className={styles.sectionTitle}>My Journey</h2>
             <p className={styles.sectionContent}>
               My journey in software development began with a curiosity about how things work
-              in the digital world. Over the years, I've worked on various projects ranging
+              in the digital world. Over the years, I&apos;ve worked on various projects ranging
               from small business websites to complex enterprise applications. Each project
               has been a learning opportunity, helping me grow both technically and professionally.
             </p>
@@ -128,8 +128,8 @@ export default function AboutPage() {
           >
             <h2 className={styles.sectionTitle}>Let's Connect</h2>
             <p className={styles.sectionContent}>
-              I'm always interested in hearing about new projects and opportunities.
-              Whether you have a question or just want to say hi, I'll try my best to get back to you!
+              I&apos;m always interested in hearing about new projects and opportunities.
+              Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
             </p>
             <motion.a
               href="/contact"

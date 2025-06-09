@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './ProjectsPage.module.css';
+import Image from 'next/image';
 
 interface Project {
   id: string;
@@ -70,9 +71,11 @@ export default function ProjectsPage() {
               transition={{ duration: 0.5 }}
               className={styles.projectCard}
             >
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
+                width={600}
+                height={400}
                 className={styles.projectImage}
               />
               <div className={styles.projectContent}>
