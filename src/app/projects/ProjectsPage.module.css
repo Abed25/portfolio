@@ -1,0 +1,229 @@
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 60px;
+}
+
+.projectsSection {
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #2563eb, #4f46e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.projectCard {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.projectImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.projectContent {
+  padding: 1.5rem;
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 1rem;
+}
+
+.projectDescription {
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.techTag {
+  background: #e5e7eb;
+  color: #4b5563;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+}
+
+.projectActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.actionButton {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.demoButton {
+  background: #2563eb;
+  color: white;
+}
+
+.demoButton:hover {
+  background: #1d4ed8;
+}
+
+.sourceButton {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.sourceButton:hover {
+  background: #e5e7eb;
+}
+
+.demoModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+.demoFrame {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 0.5rem;
+  background: #f3f4f6;
+}
+
+/* Dark mode styles */
+:global(.dark) .projectsSection {
+  background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+}
+
+:global(.dark) .projectCard {
+  background: #2d2d2d;
+}
+
+:global(.dark) .projectDescription {
+  color: #a1a1aa;
+}
+
+:global(.dark) .techTag {
+  background: #3d3d3d;
+  color: #a1a1aa;
+}
+
+:global(.dark) .sourceButton {
+  background: #3d3d3d;
+  color: #a1a1aa;
+}
+
+:global(.dark) .sourceButton:hover {
+  background: #4d4d4d;
+}
+
+:global(.dark) .modalContent {
+  background: #2d2d2d;
+  color: #ffffff;
+}
+
+:global(.dark) .demoFrame {
+  background: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 1rem;
+  }
+
+  .projectsSection {
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .projectActions {
+    flex-direction: column;
+  }
+} 

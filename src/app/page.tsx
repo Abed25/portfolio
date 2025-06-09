@@ -115,25 +115,24 @@ export default function HomePage() {
           <AnimatedSection direction="right" delay={0.3}>
             <AnimatedCard className={styles.projectCard}>
               <Image
-                src="/project1.jpg"
-                alt="E-commerce Platform"
+                src="/project-task-management.png"
+                alt="Task Management System"
                 width={300}
                 height={200}
                 className={styles.projectImage}
               />
               <div className={styles.projectContent}>
-                <h3>E-commerce Platform</h3>
+                <h3>Task Management System</h3>
                 <p>
-                  A high-performance e-commerce solution with real-time
-                  inventory management and payment processing
+                  A modern Todo application with real-time updates, user authentication, and PWA support. Built with React and Firebase.
                 </p>
                 <div className={styles.projectTech}>
-                  <span>Next.js</span>
-                  <span>Node.js</span>
-                  <span>MongoDB</span>
+                  <span>React.js</span>
+                  <span>Firebase</span>
+                  <span>PWA</span>
                 </div>
-                <a href="#" className={styles.projectLink}>
-                  View Case Study
+                <a href="/projects#task-management" className={styles.projectLink}>
+                  View Project
                 </a>
               </div>
             </AnimatedCard>
@@ -141,25 +140,24 @@ export default function HomePage() {
           <AnimatedSection direction="right" delay={0.6}>
             <AnimatedCard className={styles.projectCard}>
               <Image
-                src="/project2.jpg"
-                alt="SaaS Dashboard"
+                src="/project-welfare-portal.png"
+                alt="Student Welfare Support Portal"
                 width={300}
                 height={200}
                 className={styles.projectImage}
               />
               <div className={styles.projectContent}>
-                <h3>SaaS Dashboard</h3>
+                <h3>Student Welfare Support Portal</h3>
                 <p>
-                  Analytics dashboard for a SaaS company, featuring real-time
-                  data visualization and reporting
+                  A comprehensive welfare management system for Machakos University, featuring online applications and document verification.
                 </p>
                 <div className={styles.projectTech}>
-                  <span>React</span>
-                  <span>TypeScript</span>
-                  <span>D3.js</span>
+                  <span>React.js</span>
+                  <span>Express.js</span>
+                  <span>MongoDB</span>
                 </div>
-                <a href="#" className={styles.projectLink}>
-                  View Case Study
+                <a href="/projects#welfare-portal" className={styles.projectLink}>
+                  View Project
                 </a>
               </div>
             </AnimatedCard>
