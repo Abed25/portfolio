@@ -10,11 +10,16 @@ export const AnimatedCard = ({ children, className = '' }: AnimatedCardProps) =>
   return (
     <motion.div
       whileHover={{ 
-        scale: 1.05,
+        scale: 1.02,
         transition: { duration: 0.2 }
       }}
-      whileTap={{ scale: 0.95 }}
+      whileTap={{ scale: 0.98 }}
       className={className}
+      style={{
+        position: 'relative',
+        width: '100%',
+        transformOrigin: 'center'
+      }}
     >
       {children}
     </motion.div>

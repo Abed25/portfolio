@@ -10,9 +10,9 @@ import { AnimatedSection, AnimatedCard } from "@/components/animations";
 
 export default function HomePage() {
   return (
-    <main className={styles.main}>
+    <main className={styles.main} style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
       {/* Hero Section */}
-      <section className={styles.hero}>
+      <section className={styles.hero} style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
         <AnimatedSection direction="top" delay={0.5}>
           <div className={styles.avatar}>
             <Image
@@ -71,7 +71,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className={styles.section} id="services">
+      <section className={styles.section} id="services" style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
         <AnimatedSection direction="left">
           <h2>Services I Offer</h2>
         </AnimatedSection>
@@ -107,7 +107,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Projects Section */}
-      <section className={styles.section} id="projects">
+      <section className={styles.section} id="projects" style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
         <AnimatedSection direction="left">
           <h2>Featured Projects</h2>
         </AnimatedSection>
@@ -168,7 +168,7 @@ export default function HomePage() {
       </section>
 
       {/* Skills Section */}
-      <section className={styles.section} id="skills">
+      <section className={styles.section} id="skills" style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
         <AnimatedSection direction="left">
           <h2>Technical Expertise</h2>
         </AnimatedSection>
@@ -221,7 +221,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className={styles.section} id="testimonials">
+      <section className={styles.section} id="testimonials" style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
         <AnimatedSection direction="left">
           <h2>Client Testimonials</h2>
         </AnimatedSection>
@@ -256,7 +256,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section className={styles.section} id="contact">
+      <section className={styles.section} id="contact" style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
         <AnimatedSection direction="left">
           <h2>Let&apos;s Work Together</h2>
         </AnimatedSection>

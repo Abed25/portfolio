@@ -6,12 +6,12 @@ import Footer from "../components/Footer";
 
 export const metadata = {
   title: "superDev | Full Stack Web Developer | React & Node.js Expert",
-  description: "Explore the portfolio of superDev, a skilled Full Stack Web Developer specializing in React.js, Node.js, MySQL, and modern web technologies. Based in Kenya.",
+  description: "Explore the portfolio of superDev (Abednego), a skilled Full Stack Web Developer specializing in React.js, Node.js, MySQL, and modern web technologies. Based in Kenya.",
   keywords: "superDev, Abednego, Full Stack Developer, Web Developer Kenya, React Developer, Node.js Developer, JavaScript Expert, Portfolio, MySQL, Express.js, Vercel, Clever Cloud",
-  authors: [{ name: "superDev" }],
+  authors: [{ name: "superDev (Abednego)" }],
   openGraph: {
     title: "superDev | Full Stack Web Developer",
-    description: "Portfolio of superDev - React.js & Node.js specialist creating secure, scalable web applications.",
+    description: "Portfolio of superDev (Abednego) - React.js & Node.js specialist creating secure, scalable web applications.",
     url: "https://portfolio-abeds-projects-aa9058cd.vercel.app/",
     siteName: "superDev Portfolio",
     images: [
@@ -28,7 +28,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "superDev | Full Stack Developer",
-    description: "Explore superDev's personal portfolio: Full Stack Developer with a focus on React, Node, MySQL & security.",
+    description: "Explore superDev's (Abednego) personal portfolio: Full Stack Developer with a focus on React, Node, MySQL & security.",
     images: ["https://portfolio-abeds-projects-aa9058cd.vercel.app/preview-image.jpg"],
     creator: "@superDev",
   },
@@ -58,11 +58,13 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </head>
-      <body suppressHydrationWarning>
+      <body suppressHydrationWarning style={{ margin: 0, padding: 0, overflowX: 'hidden', width: '100%' }}>
         <ThemeRegistry>
-          <NavBar />
-          {children}
-          <Footer />
+          <div style={{ width: '100%', overflowX: 'hidden' }}>
+            <NavBar />
+            {children}
+            <Footer />
+          </div>
         </ThemeRegistry>
       </body>
     </html>

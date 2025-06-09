@@ -27,7 +27,7 @@ export const AnimatedSection = ({
       scale: 1,
       opacity: 1,
       transition: {
-        duration: 1.2,
+        duration: 0.8,
         delay,
         ease: [0.16, 1, 0.3, 1]
       }
@@ -41,6 +41,11 @@ export const AnimatedSection = ({
       viewport={{ once: true, amount: 0.1 }}
       variants={variants}
       className={className}
+      style={{ 
+        position: 'relative',
+        width: '100%',
+        overflow: 'hidden'
+      }}
     >
       {children}
     </motion.div>
