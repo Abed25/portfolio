@@ -38,27 +38,25 @@
   border: none;
   cursor: pointer;
   padding: 0.5rem;
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
   z-index: 1001;
 }
 
 .bar {
   display: block;
   width: 25px;
-  height: 3px;
+  height: 2px;
   margin: 5px auto;
   background-color: var(--text-color);
   transition: all 0.3s ease;
+  border-radius: 2px;
 }
 
 .nav {
   display: flex;
   gap: 2rem;
   background: var(--nav-bg);
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .link {
@@ -66,14 +64,18 @@
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
 }
 
 .link:hover {
   color: var(--accent-color);
+  background: var(--hover-bg);
 }
 
 .link.active {
   color: var(--accent-color);
+  background: var(--hover-bg);
 }
 
 .actionButtons {
@@ -180,10 +182,27 @@
   bottom: -45px;
 }
 
-/* Adjust tooltip position for mobile */
+/* Mobile Navigation */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
   .toggle {
     display: block;
+    margin-left: auto;
+  }
+
+  .toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 
   .nav {
@@ -194,13 +213,13 @@
     background: var(--nav-bg);
     padding: 1rem;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    align-items: stretch;
+    gap: 0.5rem;
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    z-index: 999;
+    box-shadow: 0 4px 6px var(--shadow-color);
   }
 
   .nav.open {
@@ -208,34 +227,45 @@
     opacity: 1;
     visibility: visible;
   }
-  .logo {
-    margin-left: 3rem;
+
+  .link {
+    padding: 1rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    margin: 0.25rem 0;
+  }
+
+  .link:hover,
+  .link.active {
+    background: var(--hover-bg);
   }
 
   .actionButtons {
-    position: absolute;
-    gap: 0.5rem;
-    margin-left: 40%;
+    margin-left: auto;
+    margin-right: 1rem;
   }
 
   .aiAssistantBtn::after {
-    left: auto;
-    right: 0;
-    transform: none;
-    bottom: -35px;
-    font-size: 11px;
-    padding: 6px 10px;
-  }
-
-  .aiAssistantBtn:hover::after {
-    bottom: -40px;
+    display: none;
   }
 }
 
-/* Ensure tooltip stays within viewport on very small screens */
+/* Small Mobile Devices */
 @media (max-width: 360px) {
-  .aiAssistantBtn::after {
-    right: -10px;
-    max-width: calc(100vw - 20px);
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .logo a {
+    font-size: 1.25rem;
+  }
+
+  .actionButtons {
+    gap: 0.5rem;
+  }
+
+  .aiAssistantBtn,
+  .toggleThemeBtn {
+    padding: 6px;
   }
 }

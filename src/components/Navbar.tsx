@@ -19,6 +19,25 @@ export default function NavBar() {
     setMounted(true);
   }, []);
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const nav = document.querySelector(`.${styles.nav}`);
+      const toggle = document.querySelector(`.${styles.toggle}`);
+      if (menuOpen && nav && toggle && !nav.contains(event.target as Node) && !toggle.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [menuOpen]);
+
+  // Close menu on route change
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
@@ -69,7 +88,7 @@ export default function NavBar() {
 
           {/* Menu Toggle (Mobile) */}
           <button
-            className={styles.toggle}
+            className={`${styles.toggle} ${menuOpen ? styles.active : ""}`}
             aria-label="Toggle navigation menu"
             onClick={() => setMenuOpen((prev) => !prev)}
           >
@@ -90,7 +109,6 @@ export default function NavBar() {
               <Link
                 key={href}
                 href={href}
-                onClick={() => setMenuOpen(false)}
                 className={`${styles.link} ${
                   pathname === href ? styles.active : ""
                 }`}
