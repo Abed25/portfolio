@@ -80,6 +80,12 @@ html {
   --shadow-color: rgba(0, 0, 0, 0.1);
   --background: #ffffff;
   --transition-duration: 0.3s;
+  --background-primary: #ffffff;
+  --background-secondary: #f8f9fa;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: #e5e7eb;
+  --accent-hover: #1d4ed8;
 }
 
 /* Dark theme */
@@ -90,6 +96,12 @@ html.dark {
   --hover-bg: rgba(255, 255, 255, 0.1);
   --shadow-color: rgba(255, 255, 255, 0.1);
   --background: #121212;
+  --background-primary: #1a1a1a;
+  --background-secondary: #2d2d2d;
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --border-color: #4b5563;
+  --accent-hover: #3b82f6;
 }
 
 /* Ensure light theme is explicitly set */
@@ -100,6 +112,12 @@ html.light {
   --hover-bg: rgba(0, 0, 0, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.1);
   --background: #ffffff;
+  --background-primary: #ffffff;
+  --background-secondary: #f8f9fa;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: #e5e7eb;
+  --accent-hover: #1d4ed8;
 }
 
 /* Add transition to all theme-dependent properties */
