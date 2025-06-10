@@ -54,13 +54,13 @@
 
 .title {
   font-size: 1.5rem;
-  color: #4b5563;
+  color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
 .tagline {
   font-size: 1.25rem;
-  color: #6b7280;
+  color: var(--text-secondary);
   max-width: 600px;
   margin: 0 auto 2rem;
 }
@@ -73,13 +73,13 @@
 }
 
 .socialLinks a {
-  color: #4b5563;
+  color: var(--text-secondary);
   font-size: 1.5rem;
   transition: color 0.3s ease;
 }
 
 .socialLinks a:hover {
-  color: #2563eb;
+  color: var(--accent-color);
 }
 
 .cta {
@@ -114,9 +114,9 @@
   width: 100%;
   box-sizing: border-box;
   padding: 2rem;
-  background: white;
+  background: var(--background-primary);
   border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px var(--shadow-color);
   transition: transform 0.3s ease;
 }
 
@@ -125,7 +125,7 @@
 }
 
 .serviceCard h3 {
-  color: #2563eb;
+  color: var(--accent-color);
   margin-bottom: 1rem;
 }
 
@@ -144,10 +144,10 @@
   position: relative;
   width: 100%;
   box-sizing: border-box;
-  background: white;
+  background: var(--background-primary);
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 .projectImage {
@@ -161,7 +161,7 @@
 }
 
 .projectContent h3 {
-  color: #2563eb;
+  color: var(--accent-color);
   margin-bottom: 0.5rem;
 }
 
@@ -173,16 +173,16 @@
 }
 
 .projectTech span {
-  background: #f3f4f6;
+  background: var(--background-secondary);
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
   font-size: 0.875rem;
-  color: #4b5563;
+  color: var(--text-secondary);
 }
 
 .projectLink {
   display: inline-block;
-  color: #2563eb;
+  color: var(--accent-color);
   text-decoration: none;
   font-weight: 600;
   margin-top: 1rem;
@@ -203,14 +203,14 @@
   position: relative;
   width: 100%;
   box-sizing: border-box;
-  background: white;
+  background: var(--background-primary);
   padding: 1.5rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 .skillCategory h3 {
-  color: #2563eb;
+  color: var(--accent-color);
   margin-bottom: 1rem;
 }
 
@@ -221,11 +221,11 @@
 }
 
 .skillTags span {
-  background: #f3f4f6;
+  background: var(--background-secondary);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-size: 0.875rem;
-  color: #4b5563;
+  color: var(--text-secondary);
 }
 
 /* Testimonials Section */
@@ -240,10 +240,10 @@
 }
 
 .testimonial {
-  background: white;
+  background: var(--background-primary);
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px var(--shadow-color);
   position: relative;
   width: 100%;
   box-sizing: border-box;
@@ -251,7 +251,7 @@
 
 .testimonial blockquote {
   font-size: 1.125rem;
-  color: #4b5563;
+  color: var(--text-secondary);
   margin-bottom: 1rem;
   font-style: italic;
   width: 100%;
@@ -260,7 +260,7 @@
 
 .testimonial cite {
   display: block;
-  color: #6b7280;
+  color: var(--text-secondary);
   font-size: 0.875rem;
   width: 100%;
   box-sizing: border-box;
@@ -268,7 +268,7 @@
 
 .testimonial cite strong {
   display: block;
-  color: #2563eb;
+  color: var(--accent-color);
   font-size: 1rem;
   margin-bottom: 0.25rem;
 }
@@ -278,7 +278,7 @@
   text-align: center;
   max-width: 600px;
   margin: 0 auto 2rem;
-  color: #4b5563;
+  color: var(--text-secondary);
 }
 
 .contactGrid {
@@ -289,88 +289,61 @@
 }
 
 .contactInfo {
-  background: white;
+  background: var(--background-primary);
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 .contactInfo h3 {
-  color: #2563eb;
+  color: var(--accent-color);
   margin-bottom: 1rem;
 }
 
 .contactInfo a {
-  color: #2563eb;
+  color: var(--accent-color);
   text-decoration: none;
 }
 
 .contactForm {
-  background: white;
+  background: var(--background-primary);
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 .formGroup {
   margin-bottom: 1rem;
 }
 
-/* Form Styles - Light Mode (Default) */
 .formGroup input,
 .formGroup textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-color);
   border-radius: 0.5rem;
   font-size: 1rem;
-  background: white;
-  color: #1f2937;
+  background: var(--background-primary);
+  color: var(--text-primary);
   transition: all 0.3s ease;
 }
 
 .formGroup input:focus,
 .formGroup textarea:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px var(--shadow-color);
 }
 
-/* Dark Mode Form Styles */
-:global(.dark) .formGroup input,
-:global(.dark) .formGroup textarea {
-  background: #374151;
-  color: #e5e7eb;
-  border: 1px solid #4b5563;
-}
-
-:global(.dark) .formGroup input:focus,
-:global(.dark) .formGroup textarea:focus {
-  border-color: #60a5fa;
-  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
-}
-
-/* Placeholder styles for both modes */
 .formGroup input::placeholder,
 .formGroup textarea::placeholder {
-  color: #9ca3af;
-}
-
-:global(.dark) .formGroup input::placeholder,
-:global(.dark) .formGroup textarea::placeholder {
-  color: #6b7280;
-}
-
-/* Remove any existing form styles that might conflict */
-:global(.dark) .contactForm {
-  background: #1f2937;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  color: var(--text-secondary);
 }
 
 .submitButton {
   width: 100%;
   padding: 1rem;
-  background: #2563eb;
+  background: var(--accent-color);
   color: white;
   border: none;
   border-radius: 0.5rem;
@@ -381,11 +354,14 @@
 }
 
 .submitButton:hover {
-  background: #1d4ed8;
+  background: var(--accent-hover);
 }
 
 /* Section Styles */
 .section {
+  padding: 4rem 0;
+  background: var(--background-secondary);
+  border-radius: 1rem;
   margin-bottom: 4rem;
   position: relative;
   width: 100%;
@@ -394,7 +370,7 @@
 
 .section h2 {
   font-size: 2rem;
-  color: #1f2937;
+  color: var(--text-primary);
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -633,4 +609,32 @@
 
 :global(.dark) .error.clickable:hover {
   background: #991b1b;
+}
+
+/* Remove all the dark mode overrides for backgrounds since we're using CSS variables */
+:global(.dark) .section,
+:global(.dark) .serviceCard,
+:global(.dark) .projectCard,
+:global(.dark) .skillCategory,
+:global(.dark) .testimonial,
+:global(.dark) .contactInfo,
+:global(.dark) .contactForm {
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+/* Remove any existing dark mode overrides for sections */
+:global(.dark) .section {
+  background: var(--background-secondary);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+/* Keep the existing dark mode styles for other elements */
+:global(.dark) .serviceCard,
+:global(.dark) .projectCard,
+:global(.dark) .skillCategory,
+:global(.dark) .testimonial,
+:global(.dark) .contactInfo,
+:global(.dark) .contactForm {
+  background: var(--background-primary);
+  box-shadow: 0 4px 6px var(--shadow-color);
 }

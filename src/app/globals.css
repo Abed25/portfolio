@@ -19,12 +19,8 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-    to bottom,
-    rgb(var(--background-start-rgb)),
-    rgb(var(--background-end-rgb))
-  );
+  color: var(--text-primary);
+  background: var(--background);
   min-height: 100vh;
 }
 
@@ -47,6 +43,9 @@ img {
 /* Add smooth scrolling */
 html {
   scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--background);
 }
 
 /* Ensure buttons are clickable */
@@ -69,6 +68,7 @@ a {
 html {
   transition: background-color 0.3s ease, color 0.3s ease;
   font-family: "Segoe UI", sans-serif;
+  background: var(--background);
 }
 
 /* Default light theme variables */
