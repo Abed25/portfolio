@@ -12,11 +12,11 @@ export const metadata = {
   openGraph: {
     title: "superDev | Full Stack Web Developer",
     description: "Portfolio of superDev (Abednego) - React.js & Node.js specialist creating secure, scalable web applications.",
-    url: "https://portfolio-abeds-projects-aa9058cd.vercel.app/",
+    url: "https://superabed.vercel.app/",
     siteName: "superDev Portfolio",
     images: [
       {
-        url: "https://portfolio-abeds-projects-aa9058cd.vercel.app/preview-image.jpg",
+        url: "https://superabed.vercel.app/preview-image.jpg",
         width: 1200,
         height: 630,
         alt: "superDev Portfolio Preview",
@@ -29,8 +29,8 @@ export const metadata = {
     card: "summary_large_image",
     title: "superDev | Full Stack Developer",
     description: "Explore superDev's (Abednego) personal portfolio: Full Stack Developer with a focus on React, Node, MySQL & security.",
-    images: ["https://portfolio-abeds-projects-aa9058cd.vercel.app/preview-image.jpg"],
-    creator: "@superDev",
+    images: ["https://superabed.vercel.app/preview-image.jpg"],
+    creator: "@web3superdev",
   },
   robots: {
     index: true,
@@ -44,7 +44,14 @@ export const metadata = {
     },
   },
   alternates: {
-    canonical: "https://portfolio-abeds-projects-aa9058cd.vercel.app/",
+    canonical: "https://superabed.vercel.app/",
+  },
+  verification: {
+    google: "your-google-site-verification", // Add your Google Search Console verification code
+  },
+  other: {
+    "msapplication-TileColor": "#2563eb",
+    "theme-color": "#2563eb",
   },
 };
 
