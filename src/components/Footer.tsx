@@ -61,6 +61,9 @@ export default function Footer() {
                 <li>
                   <a href="#contact">Contact</a>
                 </li>
+                <li>
+                  <a href="/cv.pdf#toolbar=0&navpanes=0" target="_blank" rel="noopener noreferrer">VIEW CV</a>
+                </li>
               </ul>
             </AnimatedCard>
           </div>

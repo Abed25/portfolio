@@ -138,6 +138,19 @@ export default function AboutPage() {
             >
               Get in Touch
             </motion.a>
+            <motion.div
+              style={{ marginTop: '1rem' }}
+            >
+              <motion.a
+                href="/cv.pdf#toolbar=0&navpanes=0"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                className={styles.cvLink}
+              >
+                VIEW CV
+              </motion.a>
+            </motion.div>
           </motion.div>
         </div>
       </motion.div>
