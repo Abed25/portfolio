@@ -62,7 +62,7 @@ export default function Footer() {
                   <a href="#contact">Contact</a>
                 </li>
                 <li>
-                  <a href="/cv.pdf#toolbar=0&navpanes=0" target="_blank" rel="noopener noreferrer">VIEW CV</a>
+                  <a href="data:application/pdf;base64,<base64-encoded-pdf-content>#toolbar=0&navpanes=0" target="_blank" rel="noopener noreferrer">VIEW CV</a>
                 </li>
               </ul>
             </AnimatedCard>
