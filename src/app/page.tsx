@@ -29,13 +29,12 @@ export default function HomePage() {
         </AnimatedSection>
         <AnimatedSection direction="left" delay={0.4}>
           <p className={styles.title}>
-            Full-Stack Developer & Technical Consultant
+            Full-Stack Developer, Consultant & ISP Owner
           </p>
         </AnimatedSection>
         <AnimatedSection direction="right" delay={0.6}>
           <p className={styles.tagline}>
-            Building scalable, high-performance web applications that drive
-            business growth
+            Empowering businesses with modern web solutions and reliable internet services.
           </p>
         </AnimatedSection>
         <AnimatedSection direction="bottom" delay={0.4}>
@@ -73,33 +72,38 @@ export default function HomePage() {
       {/* Services Section */}
       <section className={styles.section} id="services" style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
         <AnimatedSection direction="left">
-          <h2>Services I Offer</h2>
+          <h2>🚀 Services I Offer</h2>
         </AnimatedSection>
         <div className={styles.services}>
           <AnimatedSection direction="right" delay={0.3}>
             <AnimatedCard className={styles.serviceCard}>
-              <h3>Web Application Development</h3>
+              <h3>🌐 Web Application Development</h3>
               <p>
-                Custom web applications built with modern technologies like
-                React, Next.js, and Node.js
+                I design and build robust web applications using React, Next.js, and Node.js, focusing on seamless performance, scalability, and a modern user experience.
+              </p>
+            </AnimatedCard>
+          </AnimatedSection>
+          <AnimatedSection direction="left" delay={0.45}>
+            <AnimatedCard className={styles.serviceCard}>
+              <h3>📡 Internet Service Provision (SuperNett)</h3>
+              <p>
+                As the founder of SuperNett, I deliver fast, reliable, and affordable internet to homes and businesses, managing all aspects of service delivery and customer support.
               </p>
             </AnimatedCard>
           </AnimatedSection>
           <AnimatedSection direction="left" delay={0.6}>
             <AnimatedCard className={styles.serviceCard}>
-              <h3>Technical Consulting</h3>
+              <h3>🧠 Technical Consulting</h3>
               <p>
-                Expert guidance on technology stack selection, architecture, and
-                development strategy
+                I provide expert advice on technology choices, system architecture, and project strategy, helping you make informed decisions and achieve your business goals.
               </p>
             </AnimatedCard>
           </AnimatedSection>
           <AnimatedSection direction="right" delay={0.9}>
             <AnimatedCard className={styles.serviceCard}>
-              <h3>Performance Optimization</h3>
+              <h3>⚡ Performance Optimization</h3>
               <p>
-                Improve your application&apos;s speed, scalability, and user
-                experience
+                I analyze and optimize web applications for speed, scalability, and user satisfaction, using proven techniques and in-depth code reviews.
               </p>
             </AnimatedCard>
           </AnimatedSection>

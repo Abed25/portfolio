@@ -102,11 +102,12 @@
 .services {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 2.5rem;
   margin-top: 2rem;
   position: relative;
   width: 100%;
   box-sizing: border-box;
+  overflow: visible; /* Ensure child border-radius is visible */
 }
 
 .serviceCard {
@@ -118,6 +119,9 @@
   border-radius: 1rem;
   box-shadow: 0 4px 6px var(--shadow-color);
   transition: transform 0.3s ease;
+  z-index: 1;
+  margin-bottom: 0.5rem; /* Add space to show bottom curve */
+  border: 1.5px solid var(--border-color, #e5e7eb); /* Subtle border for all sides */
 }
 
 .serviceCard:hover {
@@ -469,6 +473,7 @@
 :global(.dark) .serviceCard {
   background: #1f2937;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border: 1.5px solid #374151;
 }
 
 :global(.dark) .serviceCard h3 {
