@@ -1,9 +1,7 @@
-// src/app/layout.tsx
 import "./globals.css";
 import ThemeRegistry from "./ThemeRegistry";
 import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Script from "next/script"; // ✅ Add this import
 
 export const metadata = {
   title: "superDev | Full Stack Web Developer | React & Node.js Expert",
@@ -52,7 +50,7 @@ export const metadata = {
     canonical: "https://superabed.vercel.app/",
   },
   verification: {
-    google: "your-google-site-verification",
+    google: "your-google-site-verification", // Optional for Google Search Console
   },
   other: {
     "msapplication-TileColor": "#2563eb",
@@ -69,26 +67,26 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        {/* ✅ Google Analytics 4 */}
-        <Script
+
+        {/* ✅ Google Analytics (GA4) */}
+        <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-B90XE9M79H"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-D6MK19PLXL"
+        ></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-B90XE9M79H', {
+              gtag('config', 'G-D6MK19PLXL', {
                 page_path: window.location.pathname,
               });
             `,
           }}
         />
       </head>
+
       <body
         suppressHydrationWarning
         style={{ margin: 0, padding: 0, overflowX: "hidden", width: "100%" }}
