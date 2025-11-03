@@ -1,17 +1,21 @@
-// src/app/layout.tsx  (server component)
+// src/app/layout.tsx
 import "./globals.css";
 import ThemeRegistry from "./ThemeRegistry";
 import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Script from "next/script"; // ✅ Add this import
 
 export const metadata = {
   title: "superDev | Full Stack Web Developer | React & Node.js Expert",
-  description: "Explore the portfolio of superDev (Abednego), a skilled Full Stack Web Developer specializing in React.js, Node.js, MySQL, and modern web technologies. Based in Kenya.",
-  keywords: "superDev, Abednego, Full Stack Developer, Web Developer Kenya, React Developer, Node.js Developer, JavaScript Expert, Portfolio, MySQL, Express.js, Vercel, Clever Cloud",
+  description:
+    "Explore the portfolio of superDev (Abednego), a skilled Full Stack Web Developer specializing in React.js, Node.js, MySQL, and modern web technologies. Based in Kenya.",
+  keywords:
+    "superDev, Abednego, Full Stack Developer, Web Developer Kenya, React Developer, Node.js Developer, JavaScript Expert, Portfolio, MySQL, Express.js, Vercel, Clever Cloud",
   authors: [{ name: "superDev (Abednego)" }],
   openGraph: {
     title: "superDev | Full Stack Web Developer",
-    description: "Portfolio of superDev (Abednego) - React.js & Node.js specialist creating secure, scalable web applications.",
+    description:
+      "Portfolio of superDev (Abednego) - React.js & Node.js specialist creating secure, scalable web applications.",
     url: "https://superabed.vercel.app/",
     siteName: "superDev Portfolio",
     images: [
@@ -28,7 +32,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "superDev | Full Stack Developer",
-    description: "Explore superDev's (Abednego) personal portfolio: Full Stack Developer with a focus on React, Node, MySQL & security.",
+    description:
+      "Explore superDev's (Abednego) personal portfolio: Full Stack Developer with a focus on React, Node, MySQL & security.",
     images: ["https://superabed.vercel.app/preview-image.jpg"],
     creator: "@web3superdev",
   },
@@ -38,16 +43,16 @@ export const metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   alternates: {
     canonical: "https://superabed.vercel.app/",
   },
   verification: {
-    google: "your-google-site-verification", // Add your Google Search Console verification code
+    google: "your-google-site-verification",
   },
   other: {
     "msapplication-TileColor": "#2563eb",
@@ -64,10 +69,32 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        {/* ✅ Google Analytics 4 */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-B90XE9M79H"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-B90XE9M79H', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
       </head>
-      <body suppressHydrationWarning style={{ margin: 0, padding: 0, overflowX: 'hidden', width: '100%' }}>
+      <body
+        suppressHydrationWarning
+        style={{ margin: 0, padding: 0, overflowX: "hidden", width: "100%" }}
+      >
         <ThemeRegistry>
-          <div style={{ width: '100%', overflowX: 'hidden' }}>
+          <div style={{ width: "100%", overflowX: "hidden" }}>
             <NavBar />
             {children}
             <Footer />
