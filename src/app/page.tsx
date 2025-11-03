@@ -1,6 +1,6 @@
 // app/page.tsx
 "use client";
-
+import { useState } from "react";
 import Image from "next/image";
 import styles from "./HomePage.module.css";
 import avatar from "../../public/croped.jpg";
@@ -9,10 +9,18 @@ import ContactForm from "@/components/contactForm";
 import { AnimatedSection, AnimatedCard } from "@/components/animations";
 
 export default function HomePage() {
+  const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
   return (
-    <main className={styles.main} style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
+    <main
+      className={styles.main}
+      style={{ position: "relative", width: "100%", overflow: "hidden" }}
+    >
       {/* Hero Section */}
-      <section className={styles.hero} style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
+      <section
+        className={styles.hero}
+        style={{ position: "relative", width: "100%", overflow: "hidden" }}
+      >
         <AnimatedSection direction="top" delay={0.5}>
           <div className={styles.avatar}>
             <Image
@@ -29,12 +37,13 @@ export default function HomePage() {
         </AnimatedSection>
         <AnimatedSection direction="left" delay={0.4}>
           <p className={styles.title}>
-            Full-Stack Developer, Consultant & ISP Owner
+            Full-Stack Web Developer | Network Technician
           </p>
         </AnimatedSection>
         <AnimatedSection direction="right" delay={0.6}>
           <p className={styles.tagline}>
-            Empowering businesses with modern web solutions and reliable internet services.
+            I help businesses grow through modern web applications and reliable
+            internet solutions.
           </p>
         </AnimatedSection>
         <AnimatedSection direction="bottom" delay={0.4}>
@@ -64,54 +73,110 @@ export default function HomePage() {
         </AnimatedSection>
         <AnimatedSection direction="pop" delay={0.9}>
           <a href="#contact" className={styles.cta}>
-            Let&apos;s Discuss Your Project
+            Let&apos;s Build Together
           </a>
         </AnimatedSection>
       </section>
 
       {/* Services Section */}
-      <section className={styles.section} id="services" style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
+      <section
+        className={styles.section}
+        id="services"
+        style={{ position: "relative", width: "100%", overflow: "hidden" }}
+      >
         <AnimatedSection direction="left">
           <h2>🚀 Services I Offer</h2>
         </AnimatedSection>
         <div className={styles.services}>
           <AnimatedSection direction="right" delay={0.3}>
             <AnimatedCard className={styles.serviceCard}>
-              <h3>🌐 Web Application Development</h3>
-              <p>
-                I design and build robust web applications using React, Next.js, and Node.js, focusing on seamless performance, scalability, and a modern user experience.
+              <h3
+                onClick={() => setOpen(!open)}
+                className="cursor-pointer flex items-center gap-2 text-lg font-semibold"
+              >
+                🌐 Web Application Development
+                <span className="text-sm">{open ? "   ▲" : "    ▼"}</span>
+              </h3>
+
+              <p className="text-gray-700">
+                I build fast, secure and scalable web applications using React,
+                Next.js and Node.js — delivering smooth performance and a modern
+                user experience.Here are some areas I also cover:
+                <button
+                  onClick={() => setOpen(!open)}
+                  className="ml-2 text-blue-600 hover:underline focus:outline-none"
+                >
+                  {open ? "Less" : "More"}
+                </button>
               </p>
+
+              {open && (
+                // <ul className="ml-4 mt-2 space-y-1 text-gray-700">
+                <ul>
+                  <li>Improving and optimizing existing web applications</li>
+                  <li>
+                    Integrating Google Analytics, SEO tools and tracking systems
+                  </li>
+                  <li>
+                    Deploying and hosting web projects (Vercel, Clever Cloud,
+                    etc.)
+                  </li>
+                  <li>Embedding Google Maps, payment gateways and APIs</li>
+                  <li>Enhancing UI/UX design for better usability</li>
+                  <li>Adding authentication and user role management</li>
+                  <li>Setting up database connections (MySQL, Firebase)</li>
+                  <li>Implementing RESTful APIs and backend logic</li>
+                  <li>Automating email notifications and contact forms</li>
+                  <li>Integrating file uploads and cloud storage</li>
+                  <li>Fixing bugs and improving app performance</li>
+                  <li>Conducting speed and security audits</li>
+                  <li>
+                    Creating dashboards for data visualization and analytics
+                  </li>
+                </ul>
+              )}
             </AnimatedCard>
           </AnimatedSection>
           <AnimatedSection direction="left" delay={0.45}>
             <AnimatedCard className={styles.serviceCard}>
-              <h3>📡 Internet Service Provision (SuperNett)</h3>
+              <h3 onClick={() => setOpen2(!open2)}>
+                📡 Internet Service Provision (SuperNett){" "}
+                <span className="text-sm">{open2 ? "   ▲" : "    ▼"}</span>
+              </h3>
               <p>
-                As the founder of SuperNett, I deliver fast, reliable, and affordable internet to homes and businesses, managing all aspects of service delivery and customer support.
+                I deliver dependable and affordable internet solutions for homes
+                and businesses.My goal is to help communities and businesses
+                stay connected through efficient, customer-centered service.{" "}
+                <button
+                  onClick={() => setOpen2(!open2)}
+                  className="ml-2 text-blue-600 hover:underline focus:outline-none"
+                >
+                  {open2 ? "Less" : "More"}
+                </button>
               </p>
-            </AnimatedCard>
-          </AnimatedSection>
-          <AnimatedSection direction="left" delay={0.6}>
-            <AnimatedCard className={styles.serviceCard}>
-              <h3>🧠 Technical Consulting</h3>
-              <p>
-                I provide expert advice on technology choices, system architecture, and project strategy, helping you make informed decisions and achieve your business goals.
-              </p>
-            </AnimatedCard>
-          </AnimatedSection>
-          <AnimatedSection direction="right" delay={0.9}>
-            <AnimatedCard className={styles.serviceCard}>
-              <h3>⚡ Performance Optimization</h3>
-              <p>
-                I analyze and optimize web applications for speed, scalability, and user satisfaction, using proven techniques and in-depth code reviews.
-              </p>
+              {open2 && (
+                <ul className="ml-4 mt-2 text-gray-700 space-y-1">
+                  <li>Installing and configuring home Wi-Fi routers</li>
+                  <li>Setting up small business or office networks</li>
+                  <li>
+                    Repairing or troubleshooting internet connectivity issues
+                  </li>
+                  <li>
+                    Offering affordable internet connections in local areas
+                  </li>
+                </ul>
+              )}
             </AnimatedCard>
           </AnimatedSection>
         </div>
       </section>
 
       {/* Featured Projects Section */}
-      <section className={styles.section} id="projects" style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
+      <section
+        className={styles.section}
+        id="projects"
+        style={{ position: "relative", width: "100%", overflow: "hidden" }}
+      >
         <AnimatedSection direction="left">
           <h2>Featured Projects</h2>
         </AnimatedSection>
@@ -128,14 +193,19 @@ export default function HomePage() {
               <div className={styles.projectContent}>
                 <h3>Task Management System</h3>
                 <p>
-                  A modern Todo application with real-time updates, user authentication, and PWA support. Built with React and Firebase.
+                  A modern Todo application with real-time updates, user
+                  authentication, and PWA support. Built with React and
+                  Firebase.
                 </p>
                 <div className={styles.projectTech}>
                   <span>React.js</span>
                   <span>Firebase</span>
                   <span>PWA</span>
                 </div>
-                <a href="/projects#task-management" className={styles.projectLink}>
+                <a
+                  href="/projects#task-management"
+                  className={styles.projectLink}
+                >
                   View Project
                 </a>
               </div>
@@ -153,14 +223,19 @@ export default function HomePage() {
               <div className={styles.projectContent}>
                 <h3>Student Welfare Support Portal</h3>
                 <p>
-                  A comprehensive welfare management system for Machakos University, featuring online applications and document verification.
+                  A comprehensive welfare management system for Machakos
+                  University, featuring online applications and document
+                  verification.
                 </p>
                 <div className={styles.projectTech}>
                   <span>React.js</span>
                   <span>Express.js</span>
                   <span>MongoDB</span>
                 </div>
-                <a href="/projects#welfare-portal" className={styles.projectLink}>
+                <a
+                  href="/projects#welfare-portal"
+                  className={styles.projectLink}
+                >
                   View Project
                 </a>
               </div>
@@ -170,7 +245,11 @@ export default function HomePage() {
       </section>
 
       {/* Skills Section */}
-      <section className={styles.section} id="skills" style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
+      <section
+        className={styles.section}
+        id="skills"
+        style={{ position: "relative", width: "100%", overflow: "hidden" }}
+      >
         <AnimatedSection direction="left">
           <h2>Technical Expertise</h2>
         </AnimatedSection>
@@ -223,7 +302,11 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className={styles.section} id="testimonials" style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
+      <section
+        className={styles.section}
+        id="testimonials"
+        style={{ position: "relative", width: "100%", overflow: "hidden" }}
+      >
         <AnimatedSection direction="left">
           <h2>Client Testimonials</h2>
         </AnimatedSection>
@@ -258,7 +341,11 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section className={styles.section} id="contact" style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
+      <section
+        className={styles.section}
+        id="contact"
+        style={{ position: "relative", width: "100%", overflow: "hidden" }}
+      >
         <AnimatedSection direction="left">
           <h2>Let&apos;s Work Together</h2>
         </AnimatedSection>
